@@ -134,15 +134,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Objects\GameObject.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Components\Component.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Singleton.cpp" />
+    <ClCompile Include="Components\SpriteComponent.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Component.h" />
+    <ClInclude Include="Components\Component.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Objects\GameObject.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Components\SpriteComponent.h" />
+    <ClInclude Include="TimeManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
