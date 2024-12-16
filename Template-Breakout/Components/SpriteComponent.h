@@ -4,6 +4,9 @@ class SpriteComponent :
     public Component
 {
 public:
-    void Start();
+    void Start() override;
+    void Update() override;
+private:
+    
 };
 

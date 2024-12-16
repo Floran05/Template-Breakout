@@ -1,8 +1,9 @@
 ﻿#include "GameManager.h"
+#include "../resources.h"
 
 GameManager::GameManager()
 {
-	window.create(sf::VideoMode({ 1200, 780 }, 24), "SFML works!");
+	window.create(sf::VideoMode(WIN_SIZE, 24), WIN_TITLE);
 	window.setFramerateLimit(60);
 	shape.setRadius(100.0f);
 	shape.setFillColor(sf::Color::Green);

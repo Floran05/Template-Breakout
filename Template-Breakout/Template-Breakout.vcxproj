@@ -137,18 +137,19 @@
     <ClCompile Include="Objects\GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Components\Component.cpp" />
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="Singleton.cpp" />
+    <ClCompile Include="Services\GameManager.cpp" />
+    <ClCompile Include="Services\Singleton.cpp" />
     <ClCompile Include="Components\SpriteComponent.cpp" />
-    <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="Services\TimeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\Component.h" />
-    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="resources.h" />
+    <ClInclude Include="Services\GameManager.h" />
     <ClInclude Include="Objects\GameObject.h" />
-    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Services\Singleton.h" />
     <ClInclude Include="Components\SpriteComponent.h" />
-    <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="Services\TimeManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
