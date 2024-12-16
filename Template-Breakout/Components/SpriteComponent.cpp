@@ -1,6 +1,8 @@
 #include "SpriteComponent.h"
+#include "../resources.h"
 
-void SpriteComponent::Start()
+void SpriteComponent::OnCreated()
 {
-
+	//m_Texture.loadFromFile();
+	m_Sprite.setTexture(m_Texture);
 }

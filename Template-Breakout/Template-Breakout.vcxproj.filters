@@ -13,51 +13,69 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Components">
+      <UniqueIdentifier>{b47b66c5-5495-4a2a-b502-51052e5d1487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Components">
+      <UniqueIdentifier>{69e64004-a26b-4182-bfb0-5bfc995210ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Services">
+      <UniqueIdentifier>{73b03745-b240-4fb5-8cd2-68216fc59d38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Services">
+      <UniqueIdentifier>{1f58c5b5-9de9-4d15-9d7f-de4dcb8488dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects">
+      <UniqueIdentifier>{3f38aa7c-f8b4-4ada-9ac2-03ffd4eb5d9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Objects">
+      <UniqueIdentifier>{673cbfa6-3261-450d-affc-53885b43d4f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\GameObject.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Components\Component.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Services\GameManager.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Services\Singleton.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\SpriteComponent.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Services\GameManager.cpp">
+      <Filter>Fichiers sources\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Services\Singleton.cpp">
+      <Filter>Fichiers sources\Services</Filter>
     </ClCompile>
     <ClCompile Include="Services\TimeManager.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\GameObject.cpp">
+      <Filter>Fichiers sources\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Components\Component.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Services\GameManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Objects\GameObject.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Services\Singleton.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Components\SpriteComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Services\TimeManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="resources.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Component.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\SpriteComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\GameManager.h">
+      <Filter>Fichiers d%27en-tête\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\Singleton.h">
+      <Filter>Fichiers d%27en-tête\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\TimeManager.h">
+      <Filter>Fichiers d%27en-tête\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\GameObject.h">
+      <Filter>Fichiers d%27en-tête\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

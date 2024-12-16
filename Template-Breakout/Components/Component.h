@@ -1,11 +1,18 @@
 #pragma once
+#include "../Objects/GameObject.h"
 class Component
 {
 public:
-	Component() {};
+	Component(GameObject* gameObject) : m_Owner(gameObject) {};
 
-	virtual void Start() = 0;
-	virtual void Update() = 0;
-	virtual void Stop() = 0;
+	virtual void OnCreated() {};
+	virtual void Start() {};
+	virtual void Update() {};
+	virtual void Draw() {};
+	virtual void LateUpdate() {};
+	virtual void OnRemoved() {};
+
+private:
+	GameObject* m_Owner;
 };
 
