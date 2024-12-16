@@ -10,6 +10,7 @@ class GameManager : public Singleton<GameManager>
 private:
 
 	GameManager(); // Constructeur privé
+	~GameManager();
 
 public:
 	void InitGame(int argc, char* argv[]);
@@ -19,7 +20,9 @@ public:
 	void Draw();
 	void EndGame();
 
-	~GameManager();
+	sf::Vector2u GetWindowSize() const { return window.getSize(); }
+
+protected:
 
 	sf::RenderWindow window;
 	sf::CircleShape shape;

@@ -4,12 +4,16 @@
 #include <typeindex>
 #include <memory>
 //#include <Compo>
+
+class TransformComponent;
+
 class GameObject
 {
 public:
+
 	GameObject();
 
-    template <typename T, typename... Args>
+    /*template <typename T, typename... Args>
     void addComponent(Args&&... args) {
         auto type = std::type_index(typeid(T));
         components[type] = std::make_unique<T>(std::forward<Args>(args)...);
@@ -35,9 +39,13 @@ public:
         for (auto& [type, component] : components) {
             component->update();
         }
-    }
+    }*/
 
-private:
-    std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
+    TransformComponent* Transform;
+
+protected:
+    //std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
+
+
 };
 

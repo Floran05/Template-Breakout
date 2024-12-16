@@ -1,10 +1,13 @@
 #pragma once
 #include <chrono>
 
-class TimeManager {
+#include "Singleton.h"
+
+class TimeManager : public Singleton<TimeManager> 
+{
+	friend class Singleton<TimeManager>;
+
 public:
-	// Singleton instance
-	static TimeManager& Instance();
 
 	TimeManager(const TimeManager&) = delete;
 	TimeManager& operator=(const TimeManager&) = delete;

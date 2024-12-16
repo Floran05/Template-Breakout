@@ -8,12 +8,6 @@ TimeManager::TimeManager()
 	totalTime = 0;
 }
 
-TimeManager& TimeManager::Instance()
-{
-	static TimeManager instance;
-	return instance;
-}
-
 void TimeManager::Update()
 {
 	auto currentTimePoint = std::chrono::high_resolution_clock::now();

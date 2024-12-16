@@ -134,6 +134,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Components\MovementComponent.cpp" />
+    <ClCompile Include="Services\ResourceManager.cpp" />
+    <ClCompile Include="Services\InputManager.cpp" />
     <ClCompile Include="Objects\GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Components\Component.cpp" />
@@ -141,15 +144,20 @@
     <ClCompile Include="Services\Singleton.cpp" />
     <ClCompile Include="Components\SpriteComponent.cpp" />
     <ClCompile Include="Services\TimeManager.cpp" />
+    <ClCompile Include="Components\TransformComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\Component.h" />
+    <ClInclude Include="Components\MovementComponent.h" />
+    <ClInclude Include="Services\ResourceManager.h" />
+    <ClInclude Include="Services\InputManager.h" />
     <ClInclude Include="resources.h" />
     <ClInclude Include="Services\GameManager.h" />
     <ClInclude Include="Objects\GameObject.h" />
     <ClInclude Include="Services\Singleton.h" />
     <ClInclude Include="Components\SpriteComponent.h" />
     <ClInclude Include="Services\TimeManager.h" />
+    <ClInclude Include="Components\TransformComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

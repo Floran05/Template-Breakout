@@ -1,9 +1,15 @@
 #pragma once
+
 #include "../Objects/GameObject.h"
+
 class Component
 {
 public:
-	Component(GameObject* gameObject) : m_Owner(gameObject) {};
+	Component();
+	Component(GameObject* gameObject);
+	virtual ~Component();
+
+	void SetOwner(GameObject* gameObject) { m_Owner = gameObject; }
 
 	virtual void OnCreated() {};
 	virtual void Start() {};
@@ -12,7 +18,6 @@ public:
 	virtual void LateUpdate() {};
 	virtual void OnRemoved() {};
 
-private:
+protected:
 	GameObject* m_Owner;
 };
-

@@ -1,8 +1,9 @@
 #pragma once
+
 #include "Component.h"
 #include <SFML/Graphics.hpp>
-class SpriteComponent :
-    public Component
+
+class SpriteComponent : public Component
 {
 public:
     void OnCreated() override;
