@@ -1,19 +1,17 @@
 ﻿#pragma once
 
+#include "Singleton.h"
 #include <SFML/Graphics.hpp>
 
-class GameManager
+class GameManager : public Singleton<GameManager>
 {
+	friend class Singleton<GameManager>;
+
 private:
-	static GameManager* instance;  // Singleton instance
 
 	GameManager(); // Constructeur privé
 
 public:
-	// Singleton instance
-	static GameManager& Instance();
-
-
 	void InitGame(int argc, char* argv[]);
 	void Run();
 	void MainLoop();

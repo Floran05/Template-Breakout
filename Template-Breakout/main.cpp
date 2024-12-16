@@ -4,6 +4,6 @@
 
 int main()
 {
-    GameManager::Instance().Run();
+    I(GameManager)->Run();
     return 0;
 }
