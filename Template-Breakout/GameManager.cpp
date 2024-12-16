@@ -7,7 +7,7 @@ GameManager* GameManager::instance = nullptr;
 GameManager::GameManager()
 {
 	window.create(sf::VideoMode({ 200, 200 }, 24), "SFML works!");
-
+	window.setFramerateLimit(60);
 	shape.setRadius(100.0f);
 	shape.setFillColor(sf::Color::Green);
 }
