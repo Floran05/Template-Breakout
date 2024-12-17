@@ -22,7 +22,7 @@ bool GameManager::Run()
 
 void GameManager::InitGame()
 {
-	std::unique_ptr<GameObject> benBall = std::make_unique<GameObject>();
+	// std::unique_ptr<GameObject> benBall = std::make_unique<GameObject>();
 	// benBall->AddComponent<CircleShape>(BALL_SPRITE_PATH);
 	// benBall->AddComponent<MovementComponent>();
 }
