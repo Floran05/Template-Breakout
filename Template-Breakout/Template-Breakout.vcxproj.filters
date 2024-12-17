@@ -39,9 +39,6 @@
     <ClCompile Include="Components\Component.cpp">
       <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Components\ShapeComponent.cpp">
-      <Filter>Fichiers sources\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Services\GameManager.cpp">
       <Filter>Fichiers sources\Services</Filter>
     </ClCompile>
@@ -66,15 +63,24 @@
     <ClCompile Include="Components\MovementComponent.cpp">
       <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Objects\Paddle.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\CircleShapeComponent.cpp">
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\ShapeComponent.cpp">
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\RectShapeComponent.cpp">
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Components\Component.h">
-      <Filter>Fichiers d%27en-tête\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Components\ShapeComponent.h">
       <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
     <ClInclude Include="Services\GameManager.h">
@@ -99,6 +105,18 @@
       <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\TransformComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Paddle.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\ShapeComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\RectShapeComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\CircleShapeComponent.h">
       <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
   </ItemGroup>
