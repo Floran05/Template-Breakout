@@ -22,9 +22,9 @@ public:
     template <typename T>
     T* GetComponent();
 
-    void Update();
-    void Draw();
-
+    virtual void Update();
+    virtual void Draw() {};
+  
     TransformComponent* Transform;
 
 protected:
