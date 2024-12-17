@@ -6,8 +6,6 @@
 #include "../Components/MovementComponent.h"
 
 #include "../Objects/Paddle.h"
-#include "../Components/SpriteComponent.h"
-
 #include "../resources.h"
 
 GameManager::GameManager()
