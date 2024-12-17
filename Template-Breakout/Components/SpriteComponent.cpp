@@ -4,13 +4,11 @@
 #include "../resources.h"
 
 void SpriteComponent::OnCreated()
-{
-	//m_Texture.loadFromFile();
-	
+{	
 	m_Sprite = I(ResourceManager)->GetSprite(m_filePath);
 }
 
 void SpriteComponent::Update()
 {
-	//I(GameManager)->GetWindow()->draw(*(m_Sprite.get()));
+	I(GameManager)->GetWindow()->draw(*(m_Sprite.get()));
 }
