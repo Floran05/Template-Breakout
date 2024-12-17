@@ -10,17 +10,36 @@ void RectShapeComponent::Update()
 {
 }
 
-bool RectShapeComponent::CheckCollision(const ShapeComponent& other) const
+Collision RectShapeComponent::CheckCollision(ShapeComponent& other)
 {
 	return other.CheckCollision(*this);
 }
 
-bool RectShapeComponent::CheckCollision(const CircleShapeComponent& other) const
+Collision RectShapeComponent::CheckCollision(CircleShapeComponent& other)
 {
 	return other.CheckCollision(*this);
 }
 
-bool RectShapeComponent::CheckCollision(const RectShapeComponent& other) const
+Collision RectShapeComponent::CheckCollision(RectShapeComponent& other)
 {
-	return m_Shape->getGlobalBounds().findIntersection(other.m_Shape->getGlobalBounds()) != std::nullopt;
+    Collision collision = {};
+
+    if (const RectShapeComponent* rect = dynamic_cast<RectShapeComponent*>(&other))
+    {
+        sf::FloatRect thisBounds = this->m_Shape->getGlobalBounds();
+        sf::FloatRect otherBounds = rect->m_Shape->getGlobalBounds();
+
+        std::optional<sf::FloatRect> intersection = thisBounds.findIntersection(otherBounds);
+
+        if (intersection)
+        {
+            collision.Target = &other;
+            collision.Position = intersection->position;
+            collision.Normale = sf::Vector2f(1.f, 0.f);
+
+            return collision;
+        }
+    }
+
+    return collision;
 }

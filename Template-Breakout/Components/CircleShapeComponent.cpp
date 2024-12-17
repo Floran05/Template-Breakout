@@ -23,20 +23,35 @@ float CircleShapeComponent::GetRadius() const {
     return circle ? circle->getRadius() : 0.0f;
 }
 
-bool CircleShapeComponent::CheckCollision(const ShapeComponent& other) const
+Collision CircleShapeComponent::CheckCollision(ShapeComponent& other)
 {
     return other.CheckCollision(*this);
 }
 
-bool CircleShapeComponent::CheckCollision(const CircleShapeComponent& other) const
+Collision CircleShapeComponent::CheckCollision(CircleShapeComponent& other)
 {
-    float dx = m_Shape->getPosition().x - other.m_Shape->getPosition().x;
-    float dy = m_Shape->getPosition().y - other.m_Shape->getPosition().y;
-    float distance = std::sqrt(dx * dx + dy * dy);
-    return distance < (GetRadius() + other.GetRadius());
+    Collision collision = {};
+
+    if (const CircleShapeComponent* circle = dynamic_cast<CircleShapeComponent*>(&other))
+    {
+        sf::Vector2f delta = this->m_Shape->getPosition() - circle->m_Shape->getPosition();
+        float distance = std::sqrt(delta.x * delta.x + delta.y * delta.y);
+        float radiusSum = this->GetRadius() + circle->GetRadius();
+
+        if (distance < radiusSum)
+        {
+            collision.Target = &other;
+            collision.Normale = delta / distance;
+            collision.Position = this->m_Shape->getPosition();
+
+            return collision;
+        }
+    }
+
+    return collision;
 }
 
-bool CircleShapeComponent::CheckCollision(const RectShapeComponent& other) const
+Collision CircleShapeComponent::CheckCollision(RectShapeComponent& other)
 {
     return other.CheckCollision(*this);
 }

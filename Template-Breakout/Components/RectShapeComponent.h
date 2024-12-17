@@ -12,8 +12,8 @@ public:
 
     void Update();
 
-    bool CheckCollision(const ShapeComponent& other) const override;
-    bool CheckCollision(const CircleShapeComponent& other) const;
-    bool CheckCollision(const RectShapeComponent& other) const;
+    Collision CheckCollision(ShapeComponent& other) override;
+    Collision CheckCollision(CircleShapeComponent& other);
+    Collision CheckCollision(RectShapeComponent& other);
 protected:
 };
