@@ -8,7 +8,7 @@
 
 Paddle::Paddle() 
 {
-	sprite = new SpriteComponent(PADDLE_SPRITE_PATH);
+	sprite = new ShapeComponent(PADDLE_SPRITE_PATH);
 }
 
 void Paddle::Update() 
