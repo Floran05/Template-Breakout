@@ -16,18 +16,15 @@ bool GameManager::Run()
 	return MainLoop();
 }
 
-
 void GameManager::InitGame(int argc, char* argv[])
 {
-
+	std::unique_ptr<GameObject> benBall = std::make_unique<GameObject>();
+	// benBall->AddComponent<CircleShape>(BALL_SPRITE_PATH);
+	// benBall->AddComponent<MovementComponent>();
 }
 
 bool GameManager::MainLoop()
 {
-	GameObject* ben = new GameObject();
-	// ben->AddComponent<ShapeComponent>(BALL_SPRITE_PATH);
-	ben->AddComponent<MovementComponent>(sf::Vector2f(0.5f, 0.5f));
-
 	while (window.isOpen())
 	{
 		while (const std::optional event = window.pollEvent())
@@ -36,9 +33,9 @@ bool GameManager::MainLoop()
 				window.close();
 		}
 
+		Update();
 		window.clear();
-		ben->Update();
-		I(TimeManager)->Update();
+		Draw();
 		window.display();
 	}	
 	return EXIT_SUCCESS;
@@ -46,11 +43,19 @@ bool GameManager::MainLoop()
 
 void GameManager::Update()
 {
+	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	{
+		(*it)->Update();
+	}
+	I(TimeManager)->Update();
 }
 
 void GameManager::Draw()
 {
-
+	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	{
+		(*it)->Draw();
+	}
 }
 
 

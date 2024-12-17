@@ -6,7 +6,6 @@ class Component
 {
 public:
 	Component();
-	Component(GameObject* gameObject);
 	virtual ~Component();
 
 	void SetOwner(GameObject* gameObject) { m_Owner = gameObject; }

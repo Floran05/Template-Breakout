@@ -23,6 +23,7 @@ public:
     T* GetComponent();
 
     void Update();
+    void Draw();
 
     TransformComponent* Transform;
 

@@ -28,6 +28,6 @@ protected:
 
 	sf::RenderWindow window;
 
-
+	std::list<std::unique_ptr<GameObject>> mGameObjects;
 
 };
