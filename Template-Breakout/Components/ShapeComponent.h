@@ -7,12 +7,15 @@
 class ShapeComponent : public Component
 {
 public:
-    ShapeComponent(const char* filePath);
+    ShapeComponent();
     void OnCreated() override;
     void Update() override;
     void Draw() override;
-private:
+    
+protected:
     std::filesystem::path m_filePath;
+    std::shared_ptr<sf::Shape> m_Shape;
+
+private:
     std::shared_ptr<sf::Texture> m_Texture;
-    sf::Shape* m_Shape;
 };

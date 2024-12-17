@@ -3,7 +3,7 @@
 TransformComponent::TransformComponent()
 	: Position(0.f, 0.f)
 	, Rotation(sf::radians(0.f))
-	, Scale(0.3f, 0.3f)
+	, Scale(1.f, 1.f)
 {
 }
 

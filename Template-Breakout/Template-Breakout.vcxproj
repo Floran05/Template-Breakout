@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Components\CircleShapeComponent.cpp" />
     <ClCompile Include="Components\MovementComponent.cpp" />
     <ClCompile Include="Services\ResourceManager.cpp" />
     <ClCompile Include="Services\InputManager.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Components\TransformComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Components\CircleShapeComponent.h" />
     <ClInclude Include="Components\Component.h" />
     <ClInclude Include="Components\MovementComponent.h" />
     <ClInclude Include="Services\ResourceManager.h" />

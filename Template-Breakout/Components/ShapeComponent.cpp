@@ -5,9 +5,8 @@
 #include "../Components/TransformComponent.h"
 #include "../resources.h"
 
-ShapeComponent::ShapeComponent(const char* filePath)
-	: m_filePath(filePath)
-	, m_Texture(nullptr)
+ShapeComponent::ShapeComponent()
+	: m_Texture(nullptr)
 	, m_Shape(nullptr)
 {
 }
@@ -15,6 +14,8 @@ ShapeComponent::ShapeComponent(const char* filePath)
 void ShapeComponent::OnCreated()
 {	
 	m_Texture = I(ResourceManager)->GetTexture(m_filePath);
+	if (m_Shape)
+		m_Shape->setTexture(m_Texture.get());
 }
 
 void ShapeComponent::Update()
