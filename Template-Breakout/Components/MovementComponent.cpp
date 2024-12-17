@@ -1,6 +1,7 @@
 #include "MovementComponent.h"
 #include "TransformComponent.h"
 #include "../Services/TimeManager.h"
+#include "../Objects/GameObject.h"
 
 MovementComponent::MovementComponent()
 	: mDirection(0.f, 0.f)
