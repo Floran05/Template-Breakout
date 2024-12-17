@@ -1,25 +1,30 @@
 ﻿#include "GameManager.h"
+
 #include "../Objects/GameObject.h"
 #include "../Services/TimeManager.h"
 #include "../Components/CircleShapeComponent.h"
 #include "../Components/MovementComponent.h"
+
+#include "../Objects/Paddle.h"
 #include "../resources.h"
 
 GameManager::GameManager()
 {
-	window.create(sf::VideoMode(WIN_SIZE, 24), WIN_TITLE);
-	window.setFramerateLimit(60);
+	window.create(sf::VideoMode(WIN_SIZE), WIN_TITLE);
+	window.setFramerateLimit(FRAMERATE_LIMIT);
 }
 
 bool GameManager::Run()
 {
+	InitGame();
 	return MainLoop();
 }
 
-
-void GameManager::InitGame(int argc, char* argv[])
+void GameManager::InitGame()
 {
-
+	// std::unique_ptr<GameObject> benBall = std::make_unique<GameObject>();
+	// benBall->AddComponent<CircleShape>(BALL_SPRITE_PATH);
+	// benBall->AddComponent<MovementComponent>();
 }
 
 bool GameManager::MainLoop()
@@ -44,32 +49,43 @@ bool GameManager::MainLoop()
 				window.close();
 		}
 
-		window.clear();
-		ben->Update();
-		window.draw(circleShape);
-		I(TimeManager)->Update();
-		window.display();
-	}	
+		Update();
+		Draw();
+	}
+
+	ExitGame();
 	return EXIT_SUCCESS;
 }
 
 void GameManager::Update()
-{
+{  
+	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	{
+		(*it)->Update();
+	}
+	I(TimeManager)->Update();
 }
 
 void GameManager::Draw()
 {
-
+  window.clear();
+  
+	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	{
+		(*it)->Draw();
+	}
+  
+  window.display();
 }
 
 
-void GameManager::EndGame()
+void GameManager::ExitGame()
 {
-
+	// Clean here
 }
 
 
 GameManager::~GameManager()
 {
-
+	ExitGame();
 }

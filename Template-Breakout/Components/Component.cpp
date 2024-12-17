@@ -6,11 +6,6 @@ Component::Component()
 {
 }
 
-Component::Component(GameObject* gameObject)
-	: m_Owner(gameObject)
-{
-}
-
 Component::~Component()
 {
 	delete m_Owner;

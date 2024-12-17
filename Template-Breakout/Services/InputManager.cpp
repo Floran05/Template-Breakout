@@ -4,7 +4,8 @@
 
 EKeyState InputManager::GetKeyState(int key)
 {
-	if (key > mKeyStates.size() - 1) return EKeyState::Up;
+	if (key > mKeyStates.size() - 1) 
+		return EKeyState::Up;
 
 	return mKeyStates[key];
 }
