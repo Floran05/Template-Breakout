@@ -14,16 +14,16 @@ private:
 
 public:
 	void InitGame(int argc, char* argv[]);
-	void Run();
-	void MainLoop();
+	bool Run();
+	bool MainLoop();
 	void Update();
 	void Draw();
 	void EndGame();
 
 	sf::Vector2u GetWindowSize() const { return window.getSize(); }
+	sf::RenderWindow* GetWindow() { return &window; }
 
 protected:
 
 	sf::RenderWindow window;
-	sf::CircleShape shape;
 };

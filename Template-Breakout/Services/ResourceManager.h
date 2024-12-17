@@ -12,7 +12,7 @@ class ResourceManager : public Singleton<ResourceManager>
 
 private:
 
-	ResourceManager();
+	ResourceManager() {};
 	virtual ~ResourceManager();
 
 protected:

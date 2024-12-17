@@ -2,8 +2,11 @@
 
 #include "Services/GameManager.h"
 
+#if defined(_DEBUG) && defined(_CONSOLE)
 int main()
+#else
+int WinMain()
+#endif // _DEBUG
 {
-    I(GameManager)->Run();
-    return 0;
+    return I(GameManager)->Run();
 }

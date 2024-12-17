@@ -14,32 +14,15 @@ public:
 	GameObject();
 
     template <typename T, typename... Args>
-    void addComponent(Args&&... args) {
-        auto type = std::type_index(typeid(T));
-        components[type] = std::make_unique<T>(std::forward<Args>(args)...);
-    }
+    void AddComponent(Args&&... args);
 
     template <typename T>
-    void removeComponent() {
-        auto type = std::type_index(typeid(T));
-        components.erase(type);
-    }
+    void RemoveComponent();
 
     template <typename T>
-    T* getComponent() {
-        auto type = std::type_index(typeid(T));
-        auto it = components.find(type);
-        if (it != components.end()) {
-            return static_cast<T*>(it->second.get());
-        }
-        return nullptr;
-    }
+    T* GetComponent();
 
-    void update() {
-        for (auto& [type, component] : components) {
-            component->Update();
-        }
-    }
+    void Update();
 
     TransformComponent* Transform;
 
@@ -49,3 +32,27 @@ protected:
 
 };
 
+template<typename T, typename ...Args>
+inline void GameObject::AddComponent(Args && ...args)
+{
+    auto type = std::type_index(typeid(T));
+    components[type] = std::make_unique<T>(std::forward<Args>(args)...);
+}
+
+template<typename T>
+inline void GameObject::RemoveComponent()
+{
+    auto type = std::type_index(typeid(T));
+    components.erase(type);
+}
+
+template<typename T>
+inline T* GameObject::GetComponent()
+{
+    auto type = std::type_index(typeid(T));
+    auto it = components.find(type);
+    if (it != components.end()) {
+        return static_cast<T*>(it->second.get());
+    }
+    return nullptr;
+}

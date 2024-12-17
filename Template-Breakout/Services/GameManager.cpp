@@ -1,27 +1,30 @@
 ﻿#include "GameManager.h"
+#include "../Objects/GameObject.h"
+#include "../Components/SpriteComponent.h"
 #include "../resources.h"
 
 GameManager::GameManager()
 {
 	window.create(sf::VideoMode(WIN_SIZE, 24), WIN_TITLE);
 	window.setFramerateLimit(60);
-	shape.setRadius(100.0f);
-	shape.setFillColor(sf::Color::Green);
 }
 
-void GameManager::Run()
+bool GameManager::Run()
 {
-	MainLoop();
+	return MainLoop();
 }
 
 
 void GameManager::InitGame(int argc, char* argv[])
 {
-	
+
 }
 
-void GameManager::MainLoop()
+bool GameManager::MainLoop()
 {
+	GameObject* ben = new GameObject();
+	ben->AddComponent<SpriteComponent>(BALL_SPRITE_PATH);
+
 	while (window.isOpen())
 	{
 		while (const std::optional event = window.pollEvent())
@@ -31,9 +34,10 @@ void GameManager::MainLoop()
 		}
 
 		window.clear();
-		window.draw(shape);
+		ben->Update();
 		window.display();
 	}	
+	return EXIT_SUCCESS;
 }
 
 void GameManager::Update()

@@ -5,5 +5,5 @@
 #define WIN_SIZE				{WIN_WIDTH, WIN_HEIGHT}
 #define WIN_TITLE				"SFML"
 
-#define BALL_SPRITE_PATH		".\assets\benball.png"
-#define BRICK_SPRITE_PATH		".\assets\brick.png"
+#define BALL_SPRITE_PATH		".\\assets\\benball.png"
+#define BRICK_SPRITE_PATH		".\\assets\\brick.png"
