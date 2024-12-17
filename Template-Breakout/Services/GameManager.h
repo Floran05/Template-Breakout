@@ -2,6 +2,7 @@
 
 #include "Singleton.h"
 #include <SFML/Graphics.hpp>
+#include <list>
 
 #include "../Objects/GameObject.h"
 
@@ -31,4 +32,7 @@ public:
 
 protected:
 	sf::RenderWindow window;
+
+	std::list<std::unique_ptr<GameObject>> mGameObjects;
+
 };

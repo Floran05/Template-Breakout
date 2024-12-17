@@ -1,6 +1,13 @@
 ﻿#include "GameManager.h"
+
+#include "../Objects/GameObject.h"
+#include "../Services/TimeManager.h"
+#include "../Components/ShapeComponent.h"
+#include "../Components/MovementComponent.h"
+
 #include "../Objects/Paddle.h"
 #include "../Components/SpriteComponent.h"
+
 #include "../resources.h"
 
 GameManager::GameManager()
@@ -15,14 +22,11 @@ bool GameManager::Run()
 	return MainLoop();
 }
 
-
 void GameManager::InitGame()
 {
-	ball = new GameObject();
-	ball->AddComponent<SpriteComponent>(BALL_SPRITE_PATH);
-
-	paddle = new Paddle();
-	paddle->AddComponent<SpriteComponent>(PADDLE_SPRITE_PATH);
+	std::unique_ptr<GameObject> benBall = std::make_unique<GameObject>();
+	// benBall->AddComponent<CircleShape>(BALL_SPRITE_PATH);
+	// benBall->AddComponent<MovementComponent>();
 }
 
 bool GameManager::MainLoop()
@@ -38,24 +42,30 @@ bool GameManager::MainLoop()
 		Update();
 		Draw();
 	}
+
 	ExitGame();
 	return EXIT_SUCCESS;
 }
 
 void GameManager::Update()
-{
-	ball->Update();
-	paddle->Update();
+{  
+	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	{
+		(*it)->Update();
+	}
+	I(TimeManager)->Update();
 }
 
 void GameManager::Draw()
 {
-	window.clear();
-
-	ball->Draw();
-	paddle->Draw();
-
-	window.display();
+  window.clear();
+  
+	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	{
+		(*it)->Draw();
+	}
+  
+  window.display();
 }
 
 

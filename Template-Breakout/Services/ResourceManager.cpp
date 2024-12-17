@@ -1,16 +1,15 @@
 #include "ResourceManager.h"
 
 std::unordered_map<std::filesystem::path, std::shared_ptr<sf::Texture>> ResourceManager::mTextures = {};
-std::unordered_map<std::filesystem::path, std::shared_ptr<sf::Sprite>> ResourceManager::mSprites = {};
 
 ResourceManager::~ResourceManager()
 {
 }
 
-std::shared_ptr<sf::Sprite> ResourceManager::GetSprite(const std::filesystem::path& file)
+std::shared_ptr<sf::Texture> ResourceManager::GetTexture(const std::filesystem::path& file)
 {
-	std::unordered_map<std::filesystem::path, std::shared_ptr<sf::Sprite>>::iterator it = ResourceManager::mSprites.find(file);
-	if (it != ResourceManager::mSprites.end())
+	std::unordered_map<std::filesystem::path, std::shared_ptr<sf::Texture>>::iterator it = ResourceManager::mTextures.find(file);
+	if (it != ResourceManager::mTextures.end())
 	{
 		return (*it).second;
 	}
@@ -20,9 +19,7 @@ std::shared_ptr<sf::Sprite> ResourceManager::GetSprite(const std::filesystem::pa
 	{
 		newTexture->setSmooth(true);
 		ResourceManager::mTextures.emplace(file, newTexture);
-		std::shared_ptr<sf::Sprite> newSprite = std::make_shared<sf::Sprite>(*newTexture);
-		ResourceManager::mSprites.emplace(file, newSprite);
-		return newSprite;
+		return newTexture;
 	}
 
 	return nullptr;

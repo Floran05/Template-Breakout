@@ -7,7 +7,7 @@ class MovementComponent : public Component
 {
 public:
 	MovementComponent();
-	MovementComponent(GameObject* owner);
+	MovementComponent(const sf::Vector2f& initialDirection);
 	virtual ~MovementComponent();
 
 	virtual void Start() override;
