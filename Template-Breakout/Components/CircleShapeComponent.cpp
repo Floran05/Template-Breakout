@@ -34,15 +34,15 @@ Collision CircleShapeComponent::CheckCollision(CircleShapeComponent& other)
 
     if (const CircleShapeComponent* circle = dynamic_cast<CircleShapeComponent*>(&other))
     {
-        sf::Vector2f delta = this->m_Shape->getPosition() - circle->m_Shape->getPosition();
+        sf::Vector2f delta = m_Shape->getPosition() - circle->m_Shape->getPosition();
         float distance = std::sqrt(delta.x * delta.x + delta.y * delta.y);
-        float radiusSum = this->GetRadius() + circle->GetRadius();
+        float radiusSum = GetRadius() + circle->GetRadius();
 
         if (distance < radiusSum)
         {
             collision.Target = &other;
             collision.Normale = delta / distance;
-            collision.Position = this->m_Shape->getPosition();
+            collision.Position = m_Shape->getPosition();
 
             return collision;
         }
