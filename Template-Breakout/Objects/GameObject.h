@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include <typeindex>
 #include <memory>
-//#include <Compo>
+#include "../Components/Component.h"
 
 class TransformComponent;
 
@@ -13,7 +13,7 @@ public:
 
 	GameObject();
 
-    /*template <typename T, typename... Args>
+    template <typename T, typename... Args>
     void addComponent(Args&&... args) {
         auto type = std::type_index(typeid(T));
         components[type] = std::make_unique<T>(std::forward<Args>(args)...);
@@ -37,14 +37,14 @@ public:
 
     void update() {
         for (auto& [type, component] : components) {
-            component->update();
+            component->Update();
         }
-    }*/
+    }
 
     TransformComponent* Transform;
 
 protected:
-    //std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
+    std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
 
 
 };
