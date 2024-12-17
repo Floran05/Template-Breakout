@@ -54,6 +54,18 @@
     <ClCompile Include="Objects\GameObject.cpp">
       <Filter>Fichiers sources\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Services\InputManager.cpp">
+      <Filter>Fichiers sources\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Services\ResourceManager.cpp">
+      <Filter>Fichiers sources\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\TransformComponent.cpp">
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\MovementComponent.cpp">
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources.h">
@@ -76,6 +88,18 @@
     </ClInclude>
     <ClInclude Include="Objects\GameObject.h">
       <Filter>Fichiers d%27en-tête\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\InputManager.h">
+      <Filter>Fichiers d%27en-tête\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\ResourceManager.h">
+      <Filter>Fichiers d%27en-tête\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\MovementComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\TransformComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
