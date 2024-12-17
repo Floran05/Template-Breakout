@@ -11,5 +11,6 @@ void GameObject::Update()
 {
     for (auto& [type, component] : components) {
         component->Update();
+        component->Draw();
     }
 }

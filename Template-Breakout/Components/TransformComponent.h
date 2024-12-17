@@ -9,10 +9,10 @@ class TransformComponent : public Component
 public:
 
 	TransformComponent();
-	TransformComponent(const sf::Vector2f& position, const sf::Vector2f& rotation, const sf::Vector2f& scale);
+	TransformComponent(const sf::Vector2f& position, const sf::Angle& rotation, const sf::Vector2f& scale);
 
 	sf::Vector2f Position;
-	sf::Vector2f Rotation;
+	sf::Angle Rotation;
 	sf::Vector2f Scale;
 
 };

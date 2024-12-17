@@ -18,11 +18,10 @@ private:
 protected:
 
 	static std::unordered_map<std::filesystem::path, std::shared_ptr<sf::Texture>> mTextures;
-	static std::unordered_map<std::filesystem::path, std::shared_ptr<sf::Sprite>> mSprites;
 
 public:
 
-	static std::shared_ptr<sf::Sprite> GetSprite(const std::filesystem::path& file);
+	static std::shared_ptr<sf::Texture> GetTexture(const std::filesystem::path& file);
 
 };
 

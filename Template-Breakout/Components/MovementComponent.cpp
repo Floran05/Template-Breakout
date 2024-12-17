@@ -9,11 +9,10 @@ MovementComponent::MovementComponent()
 {
 }
 
-MovementComponent::MovementComponent(GameObject* owner)
-	: mDirection(0.f, 0.f)
-	, mSpeed(0.f)
+MovementComponent::MovementComponent(const sf::Vector2f& initialDirection)
+	: mDirection(initialDirection)
+	, mSpeed(100.f)
 {
-	m_Owner = owner;
 }
 
 MovementComponent::~MovementComponent()

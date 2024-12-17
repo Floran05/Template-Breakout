@@ -4,13 +4,15 @@
 #include <SFML/Graphics.hpp>
 #include <filesystem>
 
-class SpriteComponent : public Component
+class ShapeComponent : public Component
 {
 public:
-    SpriteComponent(const char* filePath) : m_filePath(filePath) {};
+    ShapeComponent(const char* filePath);
     void OnCreated() override;
     void Update() override;
+    void Draw() override;
 private:
     std::filesystem::path m_filePath;
-    std::shared_ptr<sf::Sprite> m_Sprite;
+    std::shared_ptr<sf::Texture> m_Texture;
+    sf::Shape* m_Shape;
 };

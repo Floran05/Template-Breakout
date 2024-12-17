@@ -1,6 +1,8 @@
 ﻿#include "GameManager.h"
 #include "../Objects/GameObject.h"
-#include "../Components/SpriteComponent.h"
+#include "../Services/TimeManager.h"
+#include "../Components/ShapeComponent.h"
+#include "../Components/MovementComponent.h"
 #include "../resources.h"
 
 GameManager::GameManager()
@@ -23,7 +25,8 @@ void GameManager::InitGame(int argc, char* argv[])
 bool GameManager::MainLoop()
 {
 	GameObject* ben = new GameObject();
-	ben->AddComponent<SpriteComponent>(BALL_SPRITE_PATH);
+	// ben->AddComponent<ShapeComponent>(BALL_SPRITE_PATH);
+	ben->AddComponent<MovementComponent>(sf::Vector2f(0.5f, 0.5f));
 
 	while (window.isOpen())
 	{
@@ -35,6 +38,7 @@ bool GameManager::MainLoop()
 
 		window.clear();
 		ben->Update();
+		I(TimeManager)->Update();
 		window.display();
 	}	
 	return EXIT_SUCCESS;
@@ -42,7 +46,6 @@ bool GameManager::MainLoop()
 
 void GameManager::Update()
 {
-
 }
 
 void GameManager::Draw()

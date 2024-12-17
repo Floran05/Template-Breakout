@@ -2,6 +2,7 @@
 
 #include "Singleton.h"
 #include <SFML/Graphics.hpp>
+#include <list>
 
 class GameManager : public Singleton<GameManager>
 {
@@ -26,4 +27,7 @@ public:
 protected:
 
 	sf::RenderWindow window;
+
+
+
 };
