@@ -18,5 +18,5 @@ public:
 	virtual void OnRemoved() {};
 
 protected:
-	GameObject* m_Owner;
+	GameObject* m_Owner = nullptr;
 };

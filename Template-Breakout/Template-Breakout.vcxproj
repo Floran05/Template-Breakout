@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Components\MovementComponent.cpp" />
+    <ClCompile Include="Objects\Paddle.cpp" />
     <ClCompile Include="Services\ResourceManager.cpp" />
     <ClCompile Include="Services\InputManager.cpp" />
     <ClCompile Include="Objects\GameObject.cpp" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="Components\Component.h" />
     <ClInclude Include="Components\MovementComponent.h" />
+    <ClInclude Include="Objects\Paddle.h" />
     <ClInclude Include="Services\ResourceManager.h" />
     <ClInclude Include="Services\InputManager.h" />
     <ClInclude Include="resources.h" />

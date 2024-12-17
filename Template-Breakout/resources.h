@@ -1,9 +1,11 @@
 #pragma once
 
-#define WIN_HEIGHT				720
-#define WIN_WIDTH				1280
-#define WIN_SIZE				{WIN_WIDTH, WIN_HEIGHT}
-#define WIN_TITLE				"SFML"
+#define WIN_HEIGHT						720
+#define WIN_WIDTH						1280
+#define WIN_SIZE						{WIN_WIDTH, WIN_HEIGHT}
+#define WIN_TITLE						"SFML"
+#define FRAMERATE_LIMIT					60
 
-#define BALL_SPRITE_PATH		".\\assets\\benball.png"
-#define BRICK_SPRITE_PATH		".\\assets\\brick.png"
+#define BALL_SPRITE_PATH				".\\assets\\benball.png"
+#define BRICK_SPRITE_PATH				".\\assets\\brick.png"
+#define PADDLE_SPRITE_PATH				".\\assets\\PaddleSprite.png"
