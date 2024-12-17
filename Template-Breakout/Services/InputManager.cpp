@@ -56,5 +56,5 @@ bool InputManager::IsKeyReleased(int key)
 
 bool InputManager::IsKeyUp(int key)
 {
-	return GetKeyState(key) >= EKeyState::Released;
+	return GetKeyState(key) >= EKeyState::Up;
 }

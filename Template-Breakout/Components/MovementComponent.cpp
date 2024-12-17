@@ -5,13 +5,13 @@
 
 MovementComponent::MovementComponent()
 	: mDirection(0.f, 0.f)
-	, mSpeed(0.f)
+	, mSpeed(100.f)
 {
 }
 
-MovementComponent::MovementComponent(const sf::Vector2f& initialDirection)
+MovementComponent::MovementComponent(const sf::Vector2f& initialDirection, const float initialSpeed)
 	: mDirection(initialDirection)
-	, mSpeed(100.f)
+	, mSpeed(initialSpeed)
 {
 }
 

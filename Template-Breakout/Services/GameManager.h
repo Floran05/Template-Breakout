@@ -16,9 +16,6 @@ private:
 	GameManager(); // Constructeur privé
 	~GameManager();
 
-	GameObject* ball;
-	GameObject* paddle;
-
 public:
 	void InitGame();
 	bool Run();
