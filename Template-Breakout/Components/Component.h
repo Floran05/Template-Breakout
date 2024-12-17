@@ -6,7 +6,6 @@ class Component
 {
 public:
 	Component();
-	Component(GameObject* gameObject);
 	virtual ~Component();
 
 	void SetOwner(GameObject* gameObject) { m_Owner = gameObject; }
@@ -19,5 +18,5 @@ public:
 	virtual void OnRemoved() {};
 
 protected:
-	GameObject* m_Owner;
+	GameObject* m_Owner = nullptr;
 };

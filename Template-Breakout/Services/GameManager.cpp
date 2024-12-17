@@ -1,30 +1,32 @@
 ﻿#include "GameManager.h"
-#include "../Objects/GameObject.h"
+#include "../Objects/Paddle.h"
 #include "../Components/SpriteComponent.h"
 #include "../resources.h"
 
 GameManager::GameManager()
 {
-	window.create(sf::VideoMode(WIN_SIZE, 24), WIN_TITLE);
-	window.setFramerateLimit(60);
+	window.create(sf::VideoMode(WIN_SIZE), WIN_TITLE);
+	window.setFramerateLimit(FRAMERATE_LIMIT);
 }
 
 bool GameManager::Run()
 {
+	InitGame();
 	return MainLoop();
 }
 
 
-void GameManager::InitGame(int argc, char* argv[])
+void GameManager::InitGame()
 {
+	ball = new GameObject();
+	ball->AddComponent<SpriteComponent>(BALL_SPRITE_PATH);
 
+	paddle = new Paddle();
+	paddle->AddComponent<SpriteComponent>(PADDLE_SPRITE_PATH);
 }
 
 bool GameManager::MainLoop()
 {
-	GameObject* ben = new GameObject();
-	ben->AddComponent<SpriteComponent>(BALL_SPRITE_PATH);
-
 	while (window.isOpen())
 	{
 		while (const std::optional event = window.pollEvent())
@@ -33,31 +35,37 @@ bool GameManager::MainLoop()
 				window.close();
 		}
 
-		window.clear();
-		ben->Update();
-		window.display();
-	}	
+		Update();
+		Draw();
+	}
+	ExitGame();
 	return EXIT_SUCCESS;
 }
 
 void GameManager::Update()
 {
-
+	ball->Update();
+	paddle->Update();
 }
 
 void GameManager::Draw()
 {
+	window.clear();
 
+	ball->Draw();
+	paddle->Draw();
+
+	window.display();
 }
 
 
-void GameManager::EndGame()
+void GameManager::ExitGame()
 {
-
+	// Clean here
 }
 
 
 GameManager::~GameManager()
 {
-
+	ExitGame();
 }
