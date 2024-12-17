@@ -12,6 +12,7 @@ public:
     void Update() override;
     void Draw() override;
     
+    virtual bool CheckCollision(const ShapeComponent& other) const = 0;
 protected:
     std::filesystem::path m_filePath;
     std::shared_ptr<sf::Shape> m_Shape;
