@@ -2,8 +2,9 @@
 #include "../Components/TransformComponent.h"
 
 GameObject::GameObject()
-	: Transform(nullptr)
 {
+    AddComponent<TransformComponent>();
+    Transform = GetComponent<TransformComponent>();
 }
 
 void GameObject::Update()

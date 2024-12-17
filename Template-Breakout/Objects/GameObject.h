@@ -37,6 +37,7 @@ inline void GameObject::AddComponent(Args && ...args)
 {
     auto type = std::type_index(typeid(T));
     components[type] = std::make_unique<T>(std::forward<Args>(args)...);
+    components[type]->SetOwner(this);
     components[type]->OnCreated();
 }
 
