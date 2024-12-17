@@ -4,12 +4,12 @@
 
 #include "../resources.h"
 
-#include "../Components/ShapeComponent.h"
+#include "../Components/RectShapeComponent.h"
 
 class Paddle : public GameObject
 {
 private:
-	ShapeComponent *sprite;
+	RectShapeComponent *sprite;
 	float speed;
 	float windowWidth;
 

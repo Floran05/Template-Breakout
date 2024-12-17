@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="Components\CircleShapeComponent.cpp" />
     <ClCompile Include="Components\MovementComponent.cpp" />
+    <ClCompile Include="Components\RectShapeComponent.cpp" />
     <ClCompile Include="Objects\Paddle.cpp" />
     <ClCompile Include="Services\ResourceManager.cpp" />
     <ClCompile Include="Services\InputManager.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Components\CircleShapeComponent.h" />
     <ClInclude Include="Components\Component.h" />
     <ClInclude Include="Components\MovementComponent.h" />
+    <ClInclude Include="Components\RectShapeComponent.h" />
     <ClInclude Include="Objects\Paddle.h" />
     <ClInclude Include="Services\ResourceManager.h" />
     <ClInclude Include="Services\InputManager.h" />

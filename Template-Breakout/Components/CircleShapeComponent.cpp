@@ -1,7 +1,5 @@
 #include "CircleShapeComponent.h"
 
-static float radius = 0.f;
-
 CircleShapeComponent::CircleShapeComponent(const char* fileName, float radius)
 {
 	m_filePath = fileName;

@@ -22,25 +22,15 @@ bool GameManager::Run()
 
 void GameManager::InitGame()
 {
-	// std::unique_ptr<GameObject> benBall = std::make_unique<GameObject>();
-	// benBall->AddComponent<CircleShape>(BALL_SPRITE_PATH);
-	// benBall->AddComponent<MovementComponent>();
+	std::unique_ptr<GameObject> benBall = std::make_unique<GameObject>();
+	benBall->AddComponent<CircleShapeComponent>(BALL_SPRITE_PATH, 25.f);
+	benBall->AddComponent<MovementComponent>(sf::Vector2f(0.5f, 0.5f));
+
+	mGameObjects.push_back(std::move(benBall));
 }
 
 bool GameManager::MainLoop()
 {
-	GameObject* ben = new GameObject();
-	ben->AddComponent<CircleShapeComponent>(BALL_SPRITE_PATH, 25.f);
-	ben->AddComponent<MovementComponent>(sf::Vector2f(0.5f, 0.5f));
-
-	sf::Texture texture;
-	texture.loadFromFile(BALL_SPRITE_PATH);
-	texture.setSmooth(true);
-	sf::CircleShape circleShape(25.f);
-	circleShape.setTexture(&texture);
-	circleShape.setPosition(sf::Vector2f(200.f, 50.f));
-	circleShape.setOrigin(sf::Vector2f(25.f, 25.f));
-
 	while (window.isOpen())
 	{
 		while (const std::optional event = window.pollEvent())
@@ -81,7 +71,8 @@ void GameManager::Draw()
 
 void GameManager::ExitGame()
 {
-	// Clean here
+	mGameObjects.clear();
+	mGameObjects.resize(0);
 }
 
 
