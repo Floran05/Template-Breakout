@@ -13,13 +13,13 @@ public:
 
 	GameObject();
 
-    template <typename T, typename... Args>
+    template <class T, typename... Args>
     void AddComponent(Args&&... args);
 
-    template <typename T>
+    template <class T>
     void RemoveComponent();
 
-    template <typename T>
+    template <class T>
     T* GetComponent();
 
     virtual void Update();
@@ -33,29 +33,42 @@ protected:
 
 };
 
-template<typename T, typename ...Args>
+template<class T, typename ...Args>
 inline void GameObject::AddComponent(Args && ...args)
 {
+    IS_BASE_OF_ASSERT(Component, T);
     auto type = std::type_index(typeid(T));
     components[type] = std::make_unique<T>(std::forward<Args>(args)...);
     components[type]->SetOwner(this);
     components[type]->OnCreated();
 }
 
-template<typename T>
+template<class T>
 inline void GameObject::RemoveComponent()
 {
+    IS_BASE_OF_ASSERT(Component, T);
     auto type = std::type_index(typeid(T));
     components.erase(type);
 }
 
-template<typename T>
+template<class T>
 inline T* GameObject::GetComponent()
 {
-    auto type = std::type_index(typeid(T));
+    IS_BASE_OF_ASSERT(Component, T);
+    /*auto type = std::type_index(typeid(T));
     auto it = components.find(type);
     if (it != components.end()) {
         return static_cast<T*>(it->second.get());
+    }*/
+    for (auto& [type, component] : components)
+    {
+        // Utilise dynamic_cast pour vérifier si le composant est du type ou d’un type dérivé
+        if (auto* result = dynamic_cast<T*>(component.get()))
+        {
+            return result; // Retourne le composant trouvé
+        }
     }
     return nullptr;
 }
+
+typedef std::list<std::unique_ptr<GameObject>> GameObjectList;

@@ -9,7 +9,7 @@
 
 GameManager::GameManager()
 {
-	window.create(sf::VideoMode(WIN_SIZE), WIN_TITLE);
+	window.create(sf::VideoMode(WIN_SIZE), WIN_TITLE, sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(FRAMERATE_LIMIT);
 }
 
@@ -51,7 +51,7 @@ bool GameManager::MainLoop()
 void GameManager::Update()
 {  
 	I(InputManager)->Update();
-	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	for (GameObjectList::iterator it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
 	{
 		(*it)->Update();
 	}
@@ -62,7 +62,7 @@ void GameManager::Draw()
 {
   window.clear();
   
-	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	for (GameObjectList::iterator it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
 	{
 		(*it)->Draw();
 	}

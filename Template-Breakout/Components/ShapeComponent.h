@@ -3,8 +3,12 @@
 #include "Component.h"
 #include <SFML/Graphics.hpp>
 #include <filesystem>
+#include <concepts>
 
 class ShapeComponent;
+
+template<class T>
+concept ShapeComponentConcept = std::is_base_of<ShapeComponent, T>::value;
 
 struct Collision
 {
@@ -21,7 +25,7 @@ public:
     void Update() override;
     void Draw() override;
 
-    virtual Collision CheckCollision(ShapeComponent& other) = 0;
+    virtual std::optional<Collision> CheckCollision(ShapeComponent& other) = 0;
 protected:
     std::filesystem::path m_filePath;
     std::shared_ptr<sf::Shape> m_Shape;

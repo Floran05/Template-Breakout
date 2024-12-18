@@ -32,6 +32,5 @@ public:
 protected:
 	sf::RenderWindow window;
 
-	std::list<std::shared_ptr<GameObject>> mGameObjects;
-
+	GameObjectList mGameObjects;
 };

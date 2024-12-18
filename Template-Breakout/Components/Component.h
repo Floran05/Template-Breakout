@@ -2,6 +2,9 @@
 
 class GameObject;
 
+#define IS_BASE_OF_ASSERT(Base, T)   \
+    static_assert(std::is_base_of<Base, T>::value, #T " must be derived of class: " #Base)
+
 class Component
 {
 public:
