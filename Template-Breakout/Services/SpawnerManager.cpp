@@ -7,11 +7,11 @@
 #include "../Components/PaddleControlComponent.h"
 #include "../Components/TransformComponent.h"
 #include "../Components/BounceComponent.h"
+#include "../Components/PhysComponent.h"
 #include "../Services/GameManager.h"
 
 #include <random>
 #include <functional>
-#include "../Components/PhysComponent.h"
 
 SpawnerManager::SpawnerManager()
 	: mIsInGrowPhase(true)
@@ -119,6 +119,7 @@ void SpawnerManager::AddBrickAtRandomLocation()
 						sf::Vector2u(r, c),
 						1
 					);
+					mGrid[r][c] = true;
 					I(GameManager)->AddGameObject(brick);
 					return;
 				}
