@@ -3,6 +3,7 @@
 PhysComponent::PhysComponent(EBodyType bodyType, const GameObjectList& gameObjectList)
 	: m_GameObjectList(gameObjectList)
     , m_pShapeComponent(nullptr)
+    , m_lastCollision(nullptr)
 	, m_eBodyType(bodyType)
 {
 }
@@ -37,8 +38,15 @@ void PhysComponent::Update()
         if (!otherShapeComponent)
             continue;
 
+        if (m_lastCollision && m_lastCollision->Target == otherShapeComponent)
+        {
+            m_lastCollision = nullptr;
+            continue;
+        }
+
         if (auto collision = m_pShapeComponent->CheckCollision(*otherShapeComponent))
         {
+            m_lastCollision = &collision.value();
             RaiseCollision(*collision);
         }
     }

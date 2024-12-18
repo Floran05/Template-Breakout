@@ -2,6 +2,7 @@
 
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
+#include "../Components/ShapeComponent.h"
 
 class Brick : public GameObject
 {
@@ -22,7 +23,7 @@ public:
 	int GetHealthPoints() const { return mHealthPoints; }
 	bool IsPendingKill() const { return mHealthPoints < 1; }
 
-	void OnHit();
+	void OnHit(const Collision& collision);
 
 };
 

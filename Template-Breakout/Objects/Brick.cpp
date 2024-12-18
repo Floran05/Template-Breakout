@@ -17,7 +17,7 @@ Brick::~Brick()
 {
 }
 
-void Brick::OnHit()
+void Brick::OnHit(const Collision& collision)
 {
 	--mHealthPoints;
 	if (IsPendingKill())

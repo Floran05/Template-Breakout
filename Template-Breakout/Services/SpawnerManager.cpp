@@ -35,6 +35,8 @@ std::shared_ptr<GameObject> SpawnerManager::CreateBrick(const sf::Vector2f& posi
 	std::shared_ptr<Brick> brick = std::make_shared<Brick>(gridPosition, healthPoints);
 	brick->Transform->Position = position;
 	brick->AddComponent<RectShapeComponent>(BRICK_SPRITE_PATH, mBrickSize);
+	brick->AddComponent<PhysComponent>(PhysComponent::EBodyBrick, I(GameManager)->GetObjectList());
+	brick->GetComponent<PhysComponent>()->OnCollision(std::bind(&Brick::OnHit, brick, std::placeholders::_1));
 	return brick;
 }
 
@@ -150,5 +152,5 @@ void SpawnerManager::AddBoundsOfMap()
 	std::shared_ptr<GameObject> bottomWall = std::make_shared<GameObject>();
 	bottomWall->Transform->Position = sf::Vector2f(1.f, WIN_HEIGHT-10.f);
 	bottomWall->AddComponent<RectShapeComponent>(BRICK_SPRITE_PATH, sf::Vector2f(WIN_WIDTH, 10.f));
-	I(GameManager)->AddGameObject(bottomWall);
+	//I(GameManager)->AddGameObject(bottomWall);
 }

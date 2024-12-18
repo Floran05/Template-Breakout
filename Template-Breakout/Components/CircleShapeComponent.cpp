@@ -32,6 +32,10 @@ std::optional<Collision> CircleShapeComponent::CheckCollision(CircleShapeCompone
 {
     sf::Vector2f centerA = m_Shape->getPosition();
     sf::Vector2f centerB = other.m_Shape->getPosition();
+
+    if (centerA.length() == 0 || centerB.length() == 0)
+        return std::nullopt;
+
     float radiusA = GetRadius();
     float radiusB = other.GetRadius();
 

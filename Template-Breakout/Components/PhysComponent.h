@@ -31,6 +31,7 @@ protected:
 	const GameObjectList& m_GameObjectList;
 	CollisionCallback m_collisionCallback;
 	ShapeComponent* m_pShapeComponent;
+	Collision* m_lastCollision;
 	EBodyType m_eBodyType;
 };
 

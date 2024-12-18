@@ -35,6 +35,9 @@ std::optional<Collision> RectShapeComponent::CheckCollision(RectShapeComponent& 
     sf::FloatRect thisBounds = m_Shape->getGlobalBounds();
     sf::FloatRect otherBounds = other.m_Shape->getGlobalBounds();
 
+    if (thisBounds.position.length() == 0 || otherBounds.position.length() == 0)
+        return std::nullopt;
+
     if (thisBounds.findIntersection(otherBounds)) {
         Collision collision;
         collision.Target = &other;
