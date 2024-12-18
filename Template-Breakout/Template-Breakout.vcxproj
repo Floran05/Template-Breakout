@@ -154,6 +154,7 @@
     <ClCompile Include="Services\TimeManager.cpp" />
     <ClCompile Include="Components\TransformComponent.cpp" />
     <ClCompile Include="Services\SpawnerManager.cpp" />
+    <ClCompile Include="Components\TextComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\BounceComponent.h" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Services\TimeManager.h" />
     <ClInclude Include="Components\TransformComponent.h" />
     <ClInclude Include="Services\SpawnerManager.h" />
+    <ClInclude Include="Components\TextComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
