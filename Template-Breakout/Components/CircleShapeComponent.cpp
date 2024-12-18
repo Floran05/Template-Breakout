@@ -30,22 +30,20 @@ std::optional<Collision> CircleShapeComponent::CheckCollision(ShapeComponent& ot
 
 std::optional<Collision> CircleShapeComponent::CheckCollision(CircleShapeComponent& other)
 {
-    Collision collision = {};
+    sf::Vector2f centerA = m_Shape->getPosition();
+    sf::Vector2f centerB = other.m_Shape->getPosition();
+    float radiusA = GetRadius();
+    float radiusB = other.GetRadius();
 
-    if (const CircleShapeComponent* circle = dynamic_cast<CircleShapeComponent*>(&other))
-    {
-        sf::Vector2f delta = m_Shape->getPosition() - circle->m_Shape->getPosition();
-        float distance = std::sqrt(delta.x * delta.x + delta.y * delta.y);
-        float radiusSum = GetRadius() + circle->GetRadius();
+    sf::Vector2f delta = centerB - centerA;
+    float distance = std::sqrt(delta.x * delta.x + delta.y * delta.y);
 
-        if (distance < radiusSum)
-        {
-            collision.Target = &other;
-            collision.Normale = delta / distance;
-            collision.Position = m_Shape->getPosition();
-
-            return collision;
-        }
+    if (distance < radiusA + radiusB) {
+        Collision collision;
+        collision.Target = &other;
+        collision.Normale = delta / distance;  // Normalisation
+        collision.Position = centerA + collision.Normale * radiusA;
+        return collision;
     }
 
     return std::nullopt;
@@ -53,5 +51,26 @@ std::optional<Collision> CircleShapeComponent::CheckCollision(CircleShapeCompone
 
 std::optional<Collision> CircleShapeComponent::CheckCollision(RectShapeComponent& other)
 {
+    const sf::FloatRect& rectBounds = other.GetShape()->getGlobalBounds();
+    sf::Vector2f circleCenter = m_Shape->getPosition();
+    float circleRadius = GetRadius();
+
+    if (rectBounds.position.length() == 0 || circleCenter.length() == 0)
+        return std::nullopt;
+
+    float closestX = std::clamp(circleCenter.x, rectBounds.position.x, rectBounds.position.x + rectBounds.size.x);
+    float closestY = std::clamp(circleCenter.y, rectBounds.position.y, rectBounds.position.y + rectBounds.size.y);
+
+    sf::Vector2f closestPoint(closestX, closestY);
+    sf::Vector2f delta = circleCenter - closestPoint;
+    float distance = std::sqrt(delta.x * delta.x + delta.y * delta.y);
+
+    if (distance < circleRadius) {
+        Collision collision;
+        collision.Target = &other;
+        collision.Normale = delta / distance;  // Normalisation
+        collision.Position = closestPoint;
+        return collision;
+    }
     return std::nullopt;
 }

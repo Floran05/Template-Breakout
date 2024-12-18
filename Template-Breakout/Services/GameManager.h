@@ -29,6 +29,7 @@ public:
 	sf::Vector2u GetWindowSize() const { return window.getSize(); }
 	sf::RenderWindow* GetWindow() { return &window; }
 
+	const GameObjectList& GetObjectList() const { return mGameObjects; }
 protected:
 	sf::RenderWindow window;
 

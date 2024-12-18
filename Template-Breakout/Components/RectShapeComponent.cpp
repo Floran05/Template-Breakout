@@ -32,26 +32,17 @@ std::optional<Collision> RectShapeComponent::CheckCollision(CircleShapeComponent
 
 std::optional<Collision> RectShapeComponent::CheckCollision(RectShapeComponent& other)
 {
-    Collision collision = {};
+    sf::FloatRect thisBounds = m_Shape->getGlobalBounds();
+    sf::FloatRect otherBounds = other.m_Shape->getGlobalBounds();
 
-    if (const RectShapeComponent* rect = dynamic_cast<RectShapeComponent*>(&other))
-    {
-        sf::FloatRect thisBounds = this->m_Shape->getGlobalBounds();
-        sf::FloatRect otherBounds = rect->m_Shape->getGlobalBounds();
-
-        std::optional<sf::FloatRect> intersection = thisBounds.findIntersection(otherBounds);
-
-        if (intersection)
-        {
-            collision.Target = &other;
-            collision.Position = intersection->position;
-            collision.Normale = sf::Vector2f(1.f, 0.f);
-
-            return collision;
-        }
+    if (thisBounds.findIntersection(otherBounds)) {
+        Collision collision;
+        collision.Target = &other;
+        collision.Normale = sf::Vector2f(1.0f, 0.0f);  // Normale par défaut (à ajuster selon vos besoins)
+        collision.Position = sf::Vector2f(thisBounds.position.x, thisBounds.position.y);  // Point arbitraire
+        return collision;
     }
-
-    return collision;
+    return std::nullopt;
 }
 
 void RectShapeComponent::SetSize(const sf::Vector2f& size)

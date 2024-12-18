@@ -19,7 +19,7 @@ public:
 		EBodyBrick = (1 << 2),
 	};
 
-	explicit PhysComponent(EBodyType bodyType, GameObjectList& gameObjectList);
+	explicit PhysComponent(EBodyType bodyType, const GameObjectList& gameObjectList);
 	~PhysComponent();
 
 	void Update();
@@ -28,7 +28,7 @@ public:
 	void RaiseCollision(const Collision& collision);
 
 protected:
-	GameObjectList& m_GameObjectList;
+	const GameObjectList& m_GameObjectList;
 	CollisionCallback m_collisionCallback;
 	ShapeComponent* m_pShapeComponent;
 	EBodyType m_eBodyType;

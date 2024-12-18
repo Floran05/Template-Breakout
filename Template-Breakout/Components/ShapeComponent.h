@@ -26,6 +26,8 @@ public:
     void Draw() override;
 
     virtual std::optional<Collision> CheckCollision(ShapeComponent& other) = 0;
+
+    const std::shared_ptr<sf::Shape> GetShape() const { return m_Shape; }
 protected:
     std::filesystem::path m_filePath;
     std::shared_ptr<sf::Shape> m_Shape;

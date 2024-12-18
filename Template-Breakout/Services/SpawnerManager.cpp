@@ -10,6 +10,8 @@
 #include "../Services/GameManager.h"
 
 #include <random>
+#include <functional>
+#include "../Components/PhysComponent.h"
 
 SpawnerManager::SpawnerManager()
 	: mIsInGrowPhase(true)
@@ -44,6 +46,8 @@ std::shared_ptr<GameObject> SpawnerManager::CreateBall(const sf::Vector2f& posit
 	ball->AddComponent<MovementComponent>(direction);
 	ball->AddComponent<RotatingComponent>(3.f);
 	ball->AddComponent<BounceComponent>(direction);
+	ball->AddComponent<PhysComponent>(PhysComponent::EBodyBall, I(GameManager)->GetObjectList());
+	ball->GetComponent<PhysComponent>()->OnCollision(std::bind(&BounceComponent::HandleCollision, ball->GetComponent<BounceComponent>(), std::placeholders::_1));
 	return ball;
 }
 

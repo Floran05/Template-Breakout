@@ -1,6 +1,6 @@
 #include "PhysComponent.h"
 
-PhysComponent::PhysComponent(EBodyType bodyType, GameObjectList& gameObjectList)
+PhysComponent::PhysComponent(EBodyType bodyType, const GameObjectList& gameObjectList)
 	: m_GameObjectList(gameObjectList)
     , m_pShapeComponent(nullptr)
 	, m_eBodyType(bodyType)
