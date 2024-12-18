@@ -78,6 +78,7 @@ void SpawnerManager::OnBrickDestroyed(const sf::Vector2u& gridPosition)
 {
 	mGrid[gridPosition.x][gridPosition.y] = false;
 
+	// Add more bricks when one is destroyed while total of spawned bricks is less than SPAWNER_GROW_PHASE_PERCENT_LIMIT
 	const int maxSpawn = mIsInGrowPhase ? SPAWNER_GROW_PHASE_SPAWN_AMOUNT : 1;
 	for (int i = 0; i < maxSpawn; ++i)
 	{
@@ -125,6 +126,7 @@ void SpawnerManager::AddBrickAtRandomLocation()
 					);
 					mGrid[r][c] = true;
 					I(GameManager)->AddGameObject(brick);
+					mIsInGrowPhase = (emptySlots - 1.f) / (BRICK_COLUMNS_COUNT * BRICK_ROWS_COUNT) > (1.f - SPAWNER_GROW_PHASE_PERCENT_LIMIT);
 					return;
 				}
 			}
