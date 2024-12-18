@@ -39,6 +39,14 @@ void GameManager::InitGame()
 	paddle->AddComponent<PaddleControlComponent>();
 
 	mGameObjects.push_back(std::move(paddle));
+
+	std::unique_ptr<GameObject> brick = std::make_unique<GameObject>();
+	brick->Transform->Position = { 650.f, 250.f };
+	brick->Transform->Scale = { 0.3f, 0.3f };
+	brick->AddComponent<RectShapeComponent>(BRICK_SPRITE_PATH, sf::Vector2f(200.f, 50.f));
+	brick->AddComponent<MovementComponent>(sf::Vector2f(0.f, 0.f), 300.f);
+	mGameObjects.push_back(std::move(brick));
+
 }
 
 bool GameManager::MainLoop()
