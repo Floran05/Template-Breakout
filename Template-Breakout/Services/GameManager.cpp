@@ -23,7 +23,7 @@ void GameManager::InitGame()
 {
 	I(SpawnerManager)->Start();
 
-	std::shared_ptr<GameObject> benBall = I(SpawnerManager)->CreateBall({ 100.f, 100.f }, { 0.5f, 0.5f }, 25.f);
+	std::shared_ptr<GameObject> benBall = I(SpawnerManager)->CreateBall({ 100.f, 100.f }, { 0.75f, 0.5f }, 25.f);
 	AddGameObject(benBall);
 
 	std::shared_ptr<GameObject> paddle = I(SpawnerManager)->CreatePaddle({ 650.f, 650.f }, 300.f);

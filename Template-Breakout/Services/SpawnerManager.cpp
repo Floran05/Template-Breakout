@@ -6,6 +6,7 @@
 #include "../Components/RotatingComponent.h"
 #include "../Components/PaddleControlComponent.h"
 #include "../Components/TransformComponent.h"
+#include "../Components/BounceComponent.h"
 #include "../Services/GameManager.h"
 
 #include <random>
@@ -42,6 +43,7 @@ std::shared_ptr<GameObject> SpawnerManager::CreateBall(const sf::Vector2f& posit
 	ball->AddComponent<CircleShapeComponent>(BALL_SPRITE_PATH, radius);
 	ball->AddComponent<MovementComponent>(direction);
 	ball->AddComponent<RotatingComponent>(3.f);
+	ball->AddComponent<BounceComponent>(direction);
 	return ball;
 }
 
