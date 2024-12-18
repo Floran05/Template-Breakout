@@ -24,6 +24,8 @@ public:
 	void Draw();
 	void ExitGame();
 
+	void AddGameObject(std::shared_ptr<GameObject> object);
+
 	sf::Vector2u GetWindowSize() const { return window.getSize(); }
 	sf::RenderWindow* GetWindow() { return &window; }
 

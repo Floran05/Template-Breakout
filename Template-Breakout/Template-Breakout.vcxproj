@@ -136,11 +136,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Components\BounceComponent.cpp" />
+    <ClCompile Include="Objects\Brick.cpp" />
     <ClCompile Include="Components\CircleShapeComponent.cpp" />
     <ClCompile Include="Components\MovementComponent.cpp" />
     <ClCompile Include="Components\PhysComponent.cpp" />
     <ClCompile Include="Components\RectShapeComponent.cpp" />
     <ClCompile Include="Components\PaddleControlComponent.cpp" />
+    <ClCompile Include="Components\RotatingComponent.cpp" />
     <ClCompile Include="Services\ResourceManager.cpp" />
     <ClCompile Include="Services\InputManager.cpp" />
     <ClCompile Include="Objects\GameObject.cpp" />
@@ -151,15 +153,18 @@
     <ClCompile Include="Components\ShapeComponent.cpp" />
     <ClCompile Include="Services\TimeManager.cpp" />
     <ClCompile Include="Components\TransformComponent.cpp" />
+    <ClCompile Include="Services\SpawnerManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\BounceComponent.h" />
+    <ClInclude Include="Objects\Brick.h" />
     <ClInclude Include="Components\CircleShapeComponent.h" />
     <ClInclude Include="Components\Component.h" />
     <ClInclude Include="Components\MovementComponent.h" />
     <ClInclude Include="Components\PhysComponent.h" />
     <ClInclude Include="Components\RectShapeComponent.h" />
     <ClInclude Include="Components\PaddleControlComponent.h" />
+    <ClInclude Include="Components\RotatingComponent.h" />
     <ClInclude Include="Services\ResourceManager.h" />
     <ClInclude Include="Services\InputManager.h" />
     <ClInclude Include="resources.h" />
@@ -169,6 +174,7 @@
     <ClInclude Include="Components\ShapeComponent.h" />
     <ClInclude Include="Services\TimeManager.h" />
     <ClInclude Include="Components\TransformComponent.h" />
+    <ClInclude Include="Services\SpawnerManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -71,4 +71,4 @@ inline T* GameObject::GetComponent()
     return nullptr;
 }
 
-typedef std::list<std::unique_ptr<GameObject>> GameObjectList;
+typedef std::list<std::shared_ptr<GameObject>> GameObjectList;
