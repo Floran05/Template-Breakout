@@ -37,6 +37,6 @@ protected:
 
 	int CountEmptySlots();
 	void AddBrickAtRandomLocation();
-
+	void AddBoundsOfMap();
 };
 

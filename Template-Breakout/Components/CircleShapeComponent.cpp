@@ -65,6 +65,9 @@ std::optional<Collision> CircleShapeComponent::CheckCollision(RectShapeComponent
     sf::Vector2f delta = circleCenter - closestPoint;
     float distance = std::sqrt(delta.x * delta.x + delta.y * delta.y);
 
+    if (distance <= 0)
+        return std::nullopt;
+
     if (distance < circleRadius) {
         Collision collision;
         collision.Target = &other;

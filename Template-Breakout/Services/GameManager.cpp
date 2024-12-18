@@ -5,6 +5,8 @@
 #include "../Services/InputManager.h"
 #include "../Services/SpawnerManager.h"
 
+#include "../Components/TransformComponent.h"
+
 #include "../resources.h"
 
 GameManager::GameManager()
@@ -23,10 +25,10 @@ void GameManager::InitGame()
 {
 	I(SpawnerManager)->Start();
 
-	std::shared_ptr<GameObject> benBall = I(SpawnerManager)->CreateBall({ 100.f, 100.f }, { 0.75f, 0.5f }, 25.f);
+	std::shared_ptr<GameObject> benBall = I(SpawnerManager)->CreateBall({ 650.f, 600.f }, { 0.f, -1.f }, 25.f, 500.f);
 	AddGameObject(benBall);
 
-	std::shared_ptr<GameObject> paddle = I(SpawnerManager)->CreatePaddle({ 650.f, 650.f }, 300.f);
+	std::shared_ptr<GameObject> paddle = I(SpawnerManager)->CreatePaddle({ 650.f, 650.f }, 1000.f);
 	AddGameObject(paddle);
 }
 
@@ -60,14 +62,20 @@ void GameManager::Update()
 
 void GameManager::Draw()
 {
-  window.clear();
+	window.clear();
   
 	for (GameObjectList::iterator it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
 	{
 		(*it)->Draw();
 	}
-  
-  window.display();
+	const sf::Font font(DEFAULT_FONT_PATH);
+	sf::Text text(font, std::to_string(I(TimeManager)->GetFrameRate()));
+	text.setCharacterSize(30);      // Taille en pixels
+	text.setFillColor(sf::Color::Green); // Couleur du texte
+	text.setStyle(sf::Text::Bold);
+	text.setPosition({ 20.f, 20.f });
+	window.draw(text);
+	window.display();
 }
 
 
