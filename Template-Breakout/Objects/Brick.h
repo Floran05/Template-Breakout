@@ -21,7 +21,6 @@ public:
 
 	sf::Vector2u GetGridPosition() const { return mGridPosition; }
 	int GetHealthPoints() const { return mHealthPoints; }
-	bool IsPendingKill() const { return mHealthPoints < 1; }
 
 	void OnHit(const Collision& collision);
 

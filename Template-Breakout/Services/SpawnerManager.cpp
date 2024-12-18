@@ -78,7 +78,8 @@ void SpawnerManager::OnBrickDestroyed(const sf::Vector2u& gridPosition)
 {
 	mGrid[gridPosition.x][gridPosition.y] = false;
 
-	for (int i = 0; i < mIsInGrowPhase ? SPAWNER_GROW_PHASE_SPAWN_AMOUNT : 1; ++i)
+	const int maxSpawn = mIsInGrowPhase ? SPAWNER_GROW_PHASE_SPAWN_AMOUNT : 1;
+	for (int i = 0; i < maxSpawn; ++i)
 	{
 		AddBrickAtRandomLocation();
 	}

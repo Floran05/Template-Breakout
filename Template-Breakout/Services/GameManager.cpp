@@ -9,6 +9,8 @@
 
 #include "../resources.h"
 
+#include <iostream>
+
 GameManager::GameManager()
 {
 	window.create(sf::VideoMode(WIN_SIZE), WIN_TITLE, sf::Style::Titlebar | sf::Style::Close);
@@ -76,6 +78,20 @@ void GameManager::Draw()
 	text.setPosition({ 20.f, 20.f });
 	window.draw(text);
 	window.display();
+
+	// Clear destroyed elements
+	for (GameObjectList::iterator it = mGameObjects.begin(); it != mGameObjects.end();)
+	{
+		if ((*it)->IsPendingKill())
+		{
+			std::cout << (*it).use_count() << std::endl;
+			it = mGameObjects.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
 }
 
 

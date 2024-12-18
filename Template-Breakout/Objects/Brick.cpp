@@ -20,8 +20,10 @@ Brick::~Brick()
 void Brick::OnHit(const Collision& collision)
 {
 	--mHealthPoints;
-	if (IsPendingKill())
+	if (GetHealthPoints() < 1)
 	{
+		SetIsPendingKill(true);
 		I(SpawnerManager)->OnBrickDestroyed(mGridPosition);
+
 	}
 }

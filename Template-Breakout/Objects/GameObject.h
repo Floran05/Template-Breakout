@@ -27,9 +27,13 @@ public:
   
     TransformComponent* Transform;
 
+    void SetIsPendingKill(bool isPendingKill) { mIsPendingKill = isPendingKill; }
+    bool IsPendingKill() const { return mIsPendingKill; }
+
 protected:
     std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
 
+    bool mIsPendingKill;
 
 };
 

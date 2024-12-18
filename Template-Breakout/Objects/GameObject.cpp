@@ -2,6 +2,7 @@
 #include "../Components/TransformComponent.h"
 
 GameObject::GameObject()
+    : mIsPendingKill(false)
 {
     AddComponent<TransformComponent>();
     Transform = GetComponent<TransformComponent>();
