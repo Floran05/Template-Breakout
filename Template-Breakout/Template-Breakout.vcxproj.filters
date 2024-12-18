@@ -73,21 +73,24 @@
       <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\PaddleControlComponent.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Services\SpawnerManager.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Services</Filter>
     </ClCompile>
     <ClCompile Include="Objects\Brick.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Components\RotatingComponent.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\BounceComponent.cpp">
       <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Components\PhysComponent.cpp">
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\TextComponent.cpp">
       <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -132,21 +135,24 @@
       <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\PaddleControlComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
     <ClInclude Include="Services\SpawnerManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Services</Filter>
     </ClInclude>
     <ClInclude Include="Objects\Brick.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Components\RotatingComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\BounceComponent.h">
       <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\PhysComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\TextComponent.h">
       <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
   </ItemGroup>
