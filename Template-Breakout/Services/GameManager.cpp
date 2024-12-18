@@ -3,11 +3,7 @@
 #include "../Objects/GameObject.h"
 #include "../Services/TimeManager.h"
 #include "../Services/InputManager.h"
-#include "../Components/CircleShapeComponent.h"
-#include "../Components/RectShapeComponent.h"
-#include "../Components/MovementComponent.h"
-#include "../Components/PaddleControlComponent.h"
-#include "../Components/TransformComponent.h"
+#include "../Services/SpawnerManager.h"
 
 #include "../resources.h"
 
@@ -25,20 +21,13 @@ bool GameManager::Run()
 
 void GameManager::InitGame()
 {
-	std::unique_ptr<GameObject> benBall = std::make_unique<GameObject>();
-	benBall->AddComponent<CircleShapeComponent>(BALL_SPRITE_PATH, 25.f);
-	benBall->AddComponent<MovementComponent>(sf::Vector2f(0.5f, 0.5f));
+	I(SpawnerManager)->Start();
 
-	mGameObjects.push_back(std::move(benBall));
+	std::shared_ptr<GameObject> benBall = I(SpawnerManager)->CreateBall({ 100.f, 100.f }, { 0.5f, 0.5f }, 25.f);
+	AddGameObject(benBall);
 
-	std::unique_ptr<GameObject> paddle = std::make_unique<GameObject>();
-	paddle->Transform->Position = { 650.f, 650.f };
-	paddle->Transform->Scale = { 0.3f, 0.3f };
-	paddle->AddComponent<RectShapeComponent>(PADDLE_SPRITE_PATH, sf::Vector2f(200.f, 50.f));
-	paddle->AddComponent<MovementComponent>(sf::Vector2f(0.f, 0.f), 300.f);
-	paddle->AddComponent<PaddleControlComponent>();
-
-	mGameObjects.push_back(std::move(paddle));
+	std::shared_ptr<GameObject> paddle = I(SpawnerManager)->CreatePaddle({ 650.f, 650.f }, 300.f);
+	AddGameObject(paddle);
 }
 
 bool GameManager::MainLoop()
@@ -86,6 +75,11 @@ void GameManager::ExitGame()
 {
 	mGameObjects.clear();
 	mGameObjects.resize(0);
+}
+
+void GameManager::AddGameObject(std::shared_ptr<GameObject> object)
+{
+	mGameObjects.emplace_back(object);
 }
 
 

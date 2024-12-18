@@ -24,12 +24,14 @@ public:
 	void Draw();
 	void ExitGame();
 
+	void AddGameObject(std::shared_ptr<GameObject> object);
+
 	sf::Vector2u GetWindowSize() const { return window.getSize(); }
 	sf::RenderWindow* GetWindow() { return &window; }
 
 protected:
 	sf::RenderWindow window;
 
-	std::list<std::unique_ptr<GameObject>> mGameObjects;
+	std::list<std::shared_ptr<GameObject>> mGameObjects;
 
 };
