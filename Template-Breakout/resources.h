@@ -10,6 +10,8 @@
 #define BRICK_SPRITE_PATH				".\\assets\\brick.png"
 #define PADDLE_SPRITE_PATH				".\\assets\\PaddleSprite.png"
 
+#define DEFAULT_FONT_PATH				".\\assets\\SuperShiny.ttf"
+
 #define BRICK_COLUMNS_COUNT 10
 #define BRICK_ROWS_COUNT 3
 #define BRICK_MARGIN 20.f
