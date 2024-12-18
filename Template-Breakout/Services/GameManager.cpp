@@ -13,7 +13,7 @@
 
 GameManager::GameManager()
 {
-	window.create(sf::VideoMode(WIN_SIZE), WIN_TITLE);
+	window.create(sf::VideoMode(WIN_SIZE), WIN_TITLE, sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(FRAMERATE_LIMIT);
 }
 

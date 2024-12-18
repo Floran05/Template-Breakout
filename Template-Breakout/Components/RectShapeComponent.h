@@ -14,7 +14,8 @@ public:
     Collision CheckCollision(ShapeComponent& other) override;
     Collision CheckCollision(CircleShapeComponent& other);
     Collision CheckCollision(RectShapeComponent& other);
-    void SetSize(const sf::Vector2f& size);
 
+    void SetSize(const sf::Vector2f& size);
+    const sf::Vector2f& GetSize() const;
 protected:
 };

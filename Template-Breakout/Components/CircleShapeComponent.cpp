@@ -12,8 +12,8 @@ void CircleShapeComponent::Update()
 }
 
 void CircleShapeComponent::SetRadius(float radius) {
-    auto circle = std::dynamic_pointer_cast<sf::CircleShape>(m_Shape);
-    if (circle) {
+    if (std::shared_ptr<sf::CircleShape> circle = std::dynamic_pointer_cast<sf::CircleShape>(m_Shape)) 
+    {
         circle->setRadius(radius);
     }
 }
