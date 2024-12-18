@@ -8,6 +8,7 @@
 #include "../Components/MovementComponent.h"
 #include "../Components/PaddleControlComponent.h"
 #include "../Components/TransformComponent.h"
+#include "../Components/BounceComponent.h"
 
 #include "../resources.h"
 
@@ -28,6 +29,7 @@ void GameManager::InitGame()
 	std::unique_ptr<GameObject> benBall = std::make_unique<GameObject>();
 	benBall->AddComponent<CircleShapeComponent>(BALL_SPRITE_PATH, 25.f);
 	benBall->AddComponent<MovementComponent>(sf::Vector2f(0.5f, 0.5f));
+	benBall->AddComponent<BounceComponent>(sf::Vector2f(0.5f, 0.5f));
 
 	mGameObjects.push_back(std::move(benBall));
 
