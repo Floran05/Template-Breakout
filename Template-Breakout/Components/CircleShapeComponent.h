@@ -14,9 +14,9 @@ public:
     void SetRadius(float radius);
     float GetRadius() const;
 
-    Collision CheckCollision(ShapeComponent& other) override;
-    Collision CheckCollision(CircleShapeComponent& other);
-    Collision CheckCollision(RectShapeComponent& other);
+    std::optional<Collision> CheckCollision(ShapeComponent& other) override;
+    std::optional<Collision> CheckCollision(CircleShapeComponent& other);
+    std::optional<Collision> CheckCollision(RectShapeComponent& other);
 protected:
 };
 

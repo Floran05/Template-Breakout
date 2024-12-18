@@ -138,6 +138,7 @@
     <ClCompile Include="Components\BounceComponent.cpp" />
     <ClCompile Include="Components\CircleShapeComponent.cpp" />
     <ClCompile Include="Components\MovementComponent.cpp" />
+    <ClCompile Include="Components\PhysComponent.cpp" />
     <ClCompile Include="Components\RectShapeComponent.cpp" />
     <ClCompile Include="Components\PaddleControlComponent.cpp" />
     <ClCompile Include="Services\ResourceManager.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Components\CircleShapeComponent.h" />
     <ClInclude Include="Components\Component.h" />
     <ClInclude Include="Components\MovementComponent.h" />
+    <ClInclude Include="Components\PhysComponent.h" />
     <ClInclude Include="Components\RectShapeComponent.h" />
     <ClInclude Include="Components\PaddleControlComponent.h" />
     <ClInclude Include="Services\ResourceManager.h" />

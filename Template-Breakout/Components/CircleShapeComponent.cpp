@@ -23,12 +23,12 @@ float CircleShapeComponent::GetRadius() const {
     return circle ? circle->getRadius() : 0.0f;
 }
 
-Collision CircleShapeComponent::CheckCollision(ShapeComponent& other)
+std::optional<Collision> CircleShapeComponent::CheckCollision(ShapeComponent& other)
 {
     return other.CheckCollision(*this);
 }
 
-Collision CircleShapeComponent::CheckCollision(CircleShapeComponent& other)
+std::optional<Collision> CircleShapeComponent::CheckCollision(CircleShapeComponent& other)
 {
     Collision collision = {};
 
@@ -48,10 +48,10 @@ Collision CircleShapeComponent::CheckCollision(CircleShapeComponent& other)
         }
     }
 
-    return collision;
+    return std::nullopt;
 }
 
-Collision CircleShapeComponent::CheckCollision(RectShapeComponent& other)
+std::optional<Collision> CircleShapeComponent::CheckCollision(RectShapeComponent& other)
 {
-    return other.CheckCollision(*this);
+    return std::nullopt;
 }

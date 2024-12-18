@@ -11,17 +11,26 @@ void RectShapeComponent::Update()
 {
 }
 
-Collision RectShapeComponent::CheckCollision(ShapeComponent& other)
+std::optional<Collision> RectShapeComponent::CheckCollision(ShapeComponent& other)
+{
+    if (auto* otherCircle = dynamic_cast<CircleShapeComponent*>(&other))
+    {
+        return CheckCollision(*otherCircle);
+    }
+    else if (auto* otherRect = dynamic_cast<RectShapeComponent*>(&other))
+    {
+        return CheckCollision(*otherRect);
+    }
+
+    return std::nullopt;
+}
+
+std::optional<Collision> RectShapeComponent::CheckCollision(CircleShapeComponent& other)
 {
 	return other.CheckCollision(*this);
 }
 
-Collision RectShapeComponent::CheckCollision(CircleShapeComponent& other)
-{
-	return other.CheckCollision(*this);
-}
-
-Collision RectShapeComponent::CheckCollision(RectShapeComponent& other)
+std::optional<Collision> RectShapeComponent::CheckCollision(RectShapeComponent& other)
 {
     Collision collision = {};
 

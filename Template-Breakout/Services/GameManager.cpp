@@ -9,6 +9,7 @@
 #include "../Components/PaddleControlComponent.h"
 #include "../Components/TransformComponent.h"
 #include "../Components/BounceComponent.h"
+#include "../Components/PhysComponent.h"
 
 #include "../resources.h"
 
@@ -30,6 +31,8 @@ void GameManager::InitGame()
 	benBall->AddComponent<CircleShapeComponent>(BALL_SPRITE_PATH, 25.f);
 	benBall->AddComponent<MovementComponent>(sf::Vector2f(0.5f, 0.5f));
 	benBall->AddComponent<BounceComponent>(sf::Vector2f(0.5f, 0.5f));
+	benBall->AddComponent<PhysComponent>(PhysComponent::EBodyBall, mGameObjects);
+	benBall->GetComponent<PhysComponent>()->OnCollision(std::bind(&BounceComponent::HandleCollision, benBall->GetComponent<BounceComponent>(), std::placeholders::_1));
 
 	mGameObjects.push_back(std::move(benBall));
 
@@ -72,7 +75,7 @@ bool GameManager::MainLoop()
 void GameManager::Update()
 {  
 	I(InputManager)->Update();
-	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	for (GameObjectList::iterator it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
 	{
 		(*it)->Update();
 	}
@@ -83,7 +86,7 @@ void GameManager::Draw()
 {
   window.clear();
   
-	for (auto it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
+	for (GameObjectList::iterator it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
 	{
 		(*it)->Draw();
 	}
