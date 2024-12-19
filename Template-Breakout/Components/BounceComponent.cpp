@@ -7,7 +7,6 @@
 #include "MovementComponent.h"
 
 
-
 BounceComponent::BounceComponent() : 
 	m_speed(100.0f), 
 	m_direction(0.0f, 0.0f), 
@@ -20,6 +19,7 @@ BounceComponent::BounceComponent(const sf::Vector2f& initialDirection, const flo
 	m_direction(initialDirection),
 	m_position(0.0f, 0.0f)
 {
+
 }
 
 BounceComponent::~BounceComponent()
@@ -50,6 +50,10 @@ void BounceComponent::HandleCollision(const Collision& collision)
 	m_direction = Reflect(m_direction, collision.Normale);
 	m_direction = Normalize(m_direction);
 	m_position = collision.Position + collision.Normale * 0.1f;
+
+
+	if (sound.getStatus() != sf::SoundSource::Status::Playing)
+		sound.play();
 }
 
 void BounceComponent::SetPosition(const sf::Vector2f& position)

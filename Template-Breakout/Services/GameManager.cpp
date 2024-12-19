@@ -1,9 +1,10 @@
 ﻿#include "GameManager.h"
 
 #include "../Objects/GameObject.h"
-#include "../Services/TimeManager.h"
-#include "../Services/InputManager.h"
-#include "../Services/SpawnerManager.h"
+#include "TimeManager.h"
+#include "InputManager.h"
+#include "SpawnerManager.h"
+#include "DebugManager.h"
 
 #include "../Components/TransformComponent.h"
 
@@ -30,10 +31,14 @@ void GameManager::InitGame()
 
 	std::shared_ptr<GameObject> paddle = I(SpawnerManager)->CreatePaddle({ 650.f, 650.f }, 1000.f);
 	AddGameObject(paddle);
+
+	music.setLooping(true);
 }
 
 bool GameManager::MainLoop()
 {
+	music.play();
+
 	while (window.isOpen())
 	{
 		while (const std::optional event = window.pollEvent())
@@ -68,13 +73,19 @@ void GameManager::Draw()
 	{
 		(*it)->Draw();
 	}
+	
 	const sf::Font font(DEFAULT_FONT_PATH);
-	sf::Text text(font, std::to_string(I(TimeManager)->GetFrameRate()));
+	sf::Text text(font, std::to_string(I(TimeManager)->GetApproxFrameRate()));
 	text.setCharacterSize(30);      // Taille en pixels
 	text.setFillColor(sf::Color::Green); // Couleur du texte
-	text.setStyle(sf::Text::Bold);
+	text.setStyle(sf::Text::Regular);
 	text.setPosition({ 20.f, 20.f });
 	window.draw(text);
+
+#ifdef _DEBUG
+	I(DebugManager)->Update();
+#endif // _DEBUG
+
 	window.display();
 
 	// Clear destroyed elements
@@ -94,6 +105,7 @@ void GameManager::Draw()
 
 void GameManager::ExitGame()
 {
+	music.stop();
 	mGameObjects.clear();
 	mGameObjects.resize(0);
 }

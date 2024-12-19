@@ -111,7 +111,10 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../SFML/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;opengl32.lib;freetyped.lib;winmm.lib;gdi32.lib;FLACd.lib;vorbisencd.lib;
+vorbisfiled.lib
+;vorbisd.lib;
+oggd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,7 +134,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../SFML/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-audio-s.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;FLAC.lib;vorbisenc.lib;
+vorbisfile.lib
+;vorbis.lib;
+ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -143,6 +149,7 @@
     <ClCompile Include="Components\RectShapeComponent.cpp" />
     <ClCompile Include="Components\PaddleControlComponent.cpp" />
     <ClCompile Include="Components\RotatingComponent.cpp" />
+    <ClCompile Include="Services\DebugManager.cpp" />
     <ClCompile Include="Services\ResourceManager.cpp" />
     <ClCompile Include="Services\InputManager.cpp" />
     <ClCompile Include="Objects\GameObject.cpp" />
@@ -166,6 +173,7 @@
     <ClInclude Include="Components\RectShapeComponent.h" />
     <ClInclude Include="Components\PaddleControlComponent.h" />
     <ClInclude Include="Components\RotatingComponent.h" />
+    <ClInclude Include="Services\DebugManager.h" />
     <ClInclude Include="Services\ResourceManager.h" />
     <ClInclude Include="Services\InputManager.h" />
     <ClInclude Include="resources.h" />

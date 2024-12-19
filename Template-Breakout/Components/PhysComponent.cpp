@@ -1,6 +1,6 @@
 #include "PhysComponent.h"
 
-#include <iostream>
+#include "../Services/DebugManager.h"
 
 PhysComponent::PhysComponent(EBodyType bodyType, const GameObjectList& gameObjectList)
 	: m_GameObjectList(gameObjectList)
@@ -48,6 +48,8 @@ void PhysComponent::Update()
             }
             m_lastCollisionTarget = collision->Target->GetOwner();
             RaiseCollision(*collision);
+
+            I(DebugManager)->AddDebugCollision(*collision, std::chrono::milliseconds(1000));
         }
     }
 }
