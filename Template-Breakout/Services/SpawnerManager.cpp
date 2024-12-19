@@ -62,7 +62,7 @@ std::shared_ptr<GameObject> SpawnerManager::CreatePaddle(const sf::Vector2f& pos
 {
 	std::shared_ptr<GameObject> paddle = std::make_shared<GameObject>();
 	paddle->Transform->Position = position;
-	const int paddleWidth = I(GameManager)->GetWindowSize().x * PADDLE_RELATIVE_WIDTH;
+	const float paddleWidth = I(GameManager)->GetWindowSize().x * PADDLE_RELATIVE_WIDTH;
 	const float paddleHeight = paddleWidth * (1 / static_cast<float>(PADDLE_RATIO));
 	paddle->AddComponent<RectShapeComponent>(PADDLE_SPRITE_PATH, sf::Vector2f(paddleWidth, paddleHeight));
 	paddle->AddComponent<MovementComponent>(sf::Vector2f(0.f, 0.f), speed);
@@ -122,9 +122,9 @@ void SpawnerManager::AddBrickAtRandomLocation()
 
 	const int randomTargetPosition = dist(mRandomGenerator);
 	int countEmptySlots = 0;
-	for (int r = 0, rm = mGrid.size(); r < rm; ++r)
+	for (size_t r = 0, rm = mGrid.size(); r < rm; ++r)
 	{
-		for (int c = 0, cm = mGrid[r].size(); c < cm; ++c)
+		for (size_t c = 0, cm = mGrid[r].size(); c < cm; ++c)
 		{
 			if (!mGrid[r][c])
 			{
@@ -133,7 +133,7 @@ void SpawnerManager::AddBrickAtRandomLocation()
 				{
 					std::shared_ptr<GameObject> brick = CreateBrick(
 						{ c * (mBrickSize.x + BRICK_MARGIN) + BRICK_MARGIN, r * (mBrickSize.y + BRICK_MARGIN) + BRICK_MARGIN + SPAWNER_Y_SHIFT },
-						sf::Vector2u(r, c),
+						sf::Vector2u(static_cast<unsigned int>(r), static_cast<unsigned int>(c)),
 						healthDist(mRandomGenerator)
 					);
 					mGrid[r][c] = true;

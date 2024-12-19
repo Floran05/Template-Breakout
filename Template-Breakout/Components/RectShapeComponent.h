@@ -16,6 +16,6 @@ public:
     std::optional<Collision> CheckCollision(RectShapeComponent& other);
 
     void SetSize(const sf::Vector2f& size);
-    const sf::Vector2f& GetSize() const;
+    const sf::Vector2f GetSize() const;
 protected:
 };

@@ -28,5 +28,8 @@ void MovementComponent::Update()
 {
 	if (!m_Owner) return;
 	const float deltaTime = static_cast<float>(I(TimeManager)->GetDeltaTime());
-	m_Owner->Transform->Position += sf::Vector2f(mDirection.x * deltaTime * (mSpeed + std::pow(I(GameManager)->GetGameScore(), 1.5f)), mDirection.y * deltaTime * (mSpeed + std::pow(I(GameManager)->GetGameScore(), 1.5f)));
+	m_Owner->Transform->Position += sf::Vector2f(
+		mDirection.x * deltaTime * (mSpeed + static_cast<float>(std::pow(I(GameManager)->GetGameScore(), 1.5f))), 
+		mDirection.y * deltaTime * (mSpeed + static_cast<float>(std::pow(I(GameManager)->GetGameScore(), 1.5f)))
+	);
 }

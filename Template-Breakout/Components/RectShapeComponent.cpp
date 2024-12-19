@@ -56,7 +56,7 @@ void RectShapeComponent::SetSize(const sf::Vector2f& size)
 	}
 }
 
-const sf::Vector2f& RectShapeComponent::GetSize() const
+const sf::Vector2f RectShapeComponent::GetSize() const
 {
     std::shared_ptr<sf::RectangleShape> rect = std::dynamic_pointer_cast<sf::RectangleShape>(m_Shape);
     return rect ? rect->getSize() : sf::Vector2f(0.f, 0.f);
