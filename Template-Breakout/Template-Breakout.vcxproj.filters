@@ -11,7 +11,7 @@
     </Filter>
     <Filter Include="Fichiers de ressources">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;ttf;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Fichiers d%27en-tête\Components">
       <UniqueIdentifier>{b47b66c5-5495-4a2a-b502-51052e5d1487}</UniqueIdentifier>
@@ -94,7 +94,7 @@
       <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Services\DebugManager.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -159,7 +159,7 @@
       <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
     <ClInclude Include="Services\DebugManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Services</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +174,8 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="assets\SuperShiny.ttf" />
+    <Font Include="assets\SuperShiny.ttf">
+      <Filter>Fichiers de ressources</Filter>
+    </Font>
   </ItemGroup>
 </Project>
