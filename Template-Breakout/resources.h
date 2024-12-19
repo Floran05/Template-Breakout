@@ -27,3 +27,4 @@
 #define BOUNCE_AUDIO							".\\assets\\Audio\\sfx_Ball_Bounce.wav"
 #define DESTROY_AUDIO							".\\assets\\Audio\\sfx_Brick_Destroy.wav"
 #define LOOSE_AUDIO								".\\assets\\Audio\\sfx_Loose.wav"
+#define MUSIC_AUDIO								".\\assets\\Audio\\music_Arcade_Loop.wav"

@@ -6,6 +6,9 @@
 
 #include "../Objects/GameObject.h"
 
+#include "SFML/Audio/Music.hpp"
+#include "../resources.h"
+
 
 class GameManager : public Singleton<GameManager>
 {
@@ -15,6 +18,8 @@ private:
 
 	GameManager(); // Constructeur privé
 	~GameManager();
+
+	sf::Music music = sf::Music(MUSIC_AUDIO);
 
 public:
 	void InitGame();

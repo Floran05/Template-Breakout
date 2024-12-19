@@ -31,10 +31,14 @@ void GameManager::InitGame()
 
 	std::shared_ptr<GameObject> paddle = I(SpawnerManager)->CreatePaddle({ 650.f, 650.f }, 1000.f);
 	AddGameObject(paddle);
+
+	music.setLooping(true);
 }
 
 bool GameManager::MainLoop()
 {
+	music.play();
+
 	while (window.isOpen())
 	{
 		while (const std::optional event = window.pollEvent())
@@ -101,6 +105,7 @@ void GameManager::Draw()
 
 void GameManager::ExitGame()
 {
+	music.stop();
 	mGameObjects.clear();
 	mGameObjects.resize(0);
 }
