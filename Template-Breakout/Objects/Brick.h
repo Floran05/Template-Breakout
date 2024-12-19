@@ -4,6 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include "../Components/ShapeComponent.h"
 
+#include "SFML/Audio.hpp"
+#include "../resources.h"
+
 class Brick : public GameObject
 {
 public:
@@ -16,6 +19,9 @@ private:
 
 	sf::Vector2u mGridPosition;
 	int mHealthPoints;
+
+	const sf::SoundBuffer buffer = sf::SoundBuffer(DESTROY_AUDIO);
+	sf::Sound sound = sf::Sound(buffer);
 
 public:
 

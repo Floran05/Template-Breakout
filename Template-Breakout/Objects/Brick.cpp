@@ -25,5 +25,10 @@ void Brick::OnHit(const Collision& collision)
 		SetIsPendingKill(true);
 		I(SpawnerManager)->OnBrickDestroyed(mGridPosition);
 
+		if (sound.getStatus() != sf::SoundSource::Status::Playing)
+		{
+			sound.setVolume(22);
+			sound.play();
+		}
 	}
 }

@@ -5,6 +5,10 @@
 #include <SFML/System/Vector2.hpp>
 #include "ShapeComponent.h"
 
+
+#include "SFML/Audio.hpp"
+#include "../resources.h"
+
 class BounceComponent : public Component
 {
 public:
@@ -31,4 +35,7 @@ private:
 	sf::Vector2f Normalize(const sf::Vector2f& vector) const;
 
 	sf::Vector2f Reflect(const sf::Vector2f& vector, const sf::Vector2f& normal) const;
+
+	const sf::SoundBuffer buffer = sf::SoundBuffer(BOUNCE_AUDIO);
+	sf::Sound sound = sf::Sound(buffer);
 };
