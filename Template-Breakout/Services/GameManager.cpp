@@ -135,7 +135,7 @@ void GameManager::ShowGameOver()
 	gameOver->Transform->Position = sf::Vector2f((WIN_WIDTH-600)/2, (WIN_HEIGHT-300)/2);
 	AddGameObject(gameOver);
 
-	music.setVolume(20.f);
+	music.setVolume(10.f);
 }
 
 void GameManager::RestartGame()

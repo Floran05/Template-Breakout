@@ -32,7 +32,7 @@ void Brick::OnHit(const Collision& collision)
 
 		if (mSound.getStatus() != sf::SoundSource::Status::Playing)
 		{
-			mSound.setVolume(22);
+			mSound.setVolume(30);
 			mSound.play();
 		}
 	}
