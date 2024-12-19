@@ -40,6 +40,8 @@ void PhysComponent::Update()
         if (!otherShapeComponent)
             continue;
 
+        if (!gameObject->GetComponent<PhysComponent>()) continue;
+
         if (auto collision = m_pShapeComponent->CheckCollision(*otherShapeComponent))
         {
             if (m_lastCollisionTarget && m_lastCollisionTarget == collision->Target->GetOwner())

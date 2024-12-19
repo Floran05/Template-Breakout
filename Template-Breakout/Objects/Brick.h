@@ -20,8 +20,7 @@ private:
 	sf::Vector2u mGridPosition;
 	int mHealthPoints;
 
-	const sf::SoundBuffer buffer = sf::SoundBuffer(DESTROY_AUDIO);
-	sf::Sound sound = sf::Sound(buffer);
+	std::unique_ptr<sf::Sound> mSound;
 
 public:
 

@@ -6,9 +6,16 @@
 
 #include "../Objects/GameObject.h"
 
-#include "SFML/Audio/Music.hpp"
+#include <SFML/Audio.hpp>
 #include "../resources.h"
 
+enum GameState
+{
+	ENoneState = 0,
+	EPlayingState,
+	EIsGoingToGameOverState,
+	EGameOverState
+};
 
 class GameManager : public Singleton<GameManager>
 {
@@ -20,6 +27,7 @@ private:
 	~GameManager();
 
 	sf::Music music = sf::Music(MUSIC_AUDIO);
+	std::unique_ptr<sf::Sound> m_GameOverSound;
 
 public:
 	void InitGame();
@@ -27,10 +35,18 @@ public:
 	bool MainLoop();
 	void Update();
 	void Draw();
+
+	void SetIsGameOver(bool isGameOver = true);
+	void ShowGameOver();
+	void RestartGame();
+
+	GameState GetGameState() const { return m_eGameState; }
+	bool IsGameState(const GameState& gameState) const { return m_eGameState == gameState; }
+
 	void ExitGame();
 
 	void AddGameObject(std::shared_ptr<GameObject> object);
-	void DrawText(const sf::String& text, const sf::Vector2f& position, const sf::Color& color, bool horizontalCenter = false, const unsigned int fontSize = 30);
+	void DisplayText(const sf::String& text, const sf::Vector2f& position, const sf::Color& color, bool horizontalCenter = false, const unsigned int fontSize = 30);
 
 	void IncreaseScore() { ++mGamePoints; }
 	void ResetScore() { mGamePoints = 0; }
@@ -45,5 +61,6 @@ protected:
 
 	int mGamePoints;
 
+	GameState m_eGameState;
 	sf::Font mDefaultFont;
 };

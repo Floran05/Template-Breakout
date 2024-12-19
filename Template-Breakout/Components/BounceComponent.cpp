@@ -12,6 +12,8 @@ BounceComponent::BounceComponent() :
 	m_direction(0.0f, 0.0f), 
 	m_position(0.0f, 0.0f)
 {
+	const sf::SoundBuffer buffer = sf::SoundBuffer(BOUNCE_AUDIO);
+	m_sound = std::make_unique<sf::Sound>(buffer);
 }
 
 BounceComponent::BounceComponent(const sf::Vector2f& initialDirection, const float initialSpeed) :
@@ -19,7 +21,8 @@ BounceComponent::BounceComponent(const sf::Vector2f& initialDirection, const flo
 	m_direction(initialDirection),
 	m_position(0.0f, 0.0f)
 {
-
+	const sf::SoundBuffer buffer = sf::SoundBuffer(BOUNCE_AUDIO);
+	m_sound = std::make_unique<sf::Sound>(buffer);
 }
 
 BounceComponent::~BounceComponent()
@@ -51,9 +54,8 @@ void BounceComponent::HandleCollision(const Collision& collision)
 	m_direction = Normalize(m_direction);
 	m_position = collision.Position + collision.Normale * 0.1f;
 
-
-	if (sound.getStatus() != sf::SoundSource::Status::Playing)
-		sound.play();
+	if (m_sound->getStatus() != sf::SoundSource::Status::Playing)
+		m_sound->play();
 }
 
 void BounceComponent::SetPosition(const sf::Vector2f& position)

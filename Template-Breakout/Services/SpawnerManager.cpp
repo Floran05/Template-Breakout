@@ -8,6 +8,7 @@
 #include "../Components/TransformComponent.h"
 #include "../Components/BounceComponent.h"
 #include "../Components/PhysComponent.h"
+#include "../Components/LoseComponent.h"
 #include "../Services/GameManager.h"
 
 #include <functional>
@@ -51,6 +52,7 @@ std::shared_ptr<GameObject> SpawnerManager::CreateBall(const sf::Vector2f& posit
 	ball->AddComponent<BounceComponent>(direction);
 	ball->AddComponent<PhysComponent>(PhysComponent::EBodyBall, I(GameManager)->GetObjectList());
 	ball->GetComponent<PhysComponent>()->OnCollision(std::bind(&BounceComponent::HandleCollision, ball->GetComponent<BounceComponent>(), std::placeholders::_1));
+	ball->AddComponent<LoseComponent>();
 	return ball;
 }
 
@@ -62,6 +64,7 @@ std::shared_ptr<GameObject> SpawnerManager::CreatePaddle(const sf::Vector2f& pos
 	const float paddleHeight = paddleWidth * (1 / static_cast<float>(PADDLE_RATIO));
 	paddle->AddComponent<RectShapeComponent>(PADDLE_SPRITE_PATH, sf::Vector2f(paddleWidth, paddleHeight));
 	paddle->AddComponent<MovementComponent>(sf::Vector2f(0.f, 0.f), speed);
+	paddle->AddComponent<PhysComponent>(PhysComponent::EBodyPaddle, I(GameManager)->GetObjectList());
 	paddle->AddComponent<PaddleControlComponent>();
 	return paddle;
 }
@@ -84,6 +87,14 @@ void SpawnerManager::OnBrickDestroyed(const sf::Vector2u& gridPosition)
 	for (int i = 0; i < maxSpawn; ++i)
 	{
 		AddBrickAtRandomLocation();
+	}
+}
+
+void SpawnerManager::ClearGrid()
+{
+	for (auto& row : mGrid)
+	{
+		row.fill(false);
 	}
 }
 
@@ -138,21 +149,20 @@ void SpawnerManager::AddBoundsOfMap()
 	std::shared_ptr<GameObject> leftWall = std::make_shared<GameObject>();
 	leftWall->Transform->Position = sf::Vector2f(0.f, 10.f);
 	leftWall->AddComponent<RectShapeComponent>(BRICK_SPRITE_PATH, sf::Vector2f(10.f, WIN_HEIGHT - 10.f));
+	leftWall->AddComponent<PhysComponent>(PhysComponent::EBodyBrick, I(GameManager)->GetObjectList());
+
 	I(GameManager)->AddGameObject(leftWall);
 
 	std::shared_ptr<GameObject> rightWall = std::make_shared<GameObject>();
 	rightWall->Transform->Position = sf::Vector2f(WIN_WIDTH - 10.f, 10.f);
 	rightWall->AddComponent<RectShapeComponent>(BRICK_SPRITE_PATH, sf::Vector2f(10.f, WIN_HEIGHT -10.f));
+	rightWall->AddComponent<PhysComponent>(PhysComponent::EBodyBrick, I(GameManager)->GetObjectList());
 	I(GameManager)->AddGameObject(rightWall);
 
 
 	std::shared_ptr<GameObject> topWall = std::make_shared<GameObject>();
 	topWall->Transform->Position = sf::Vector2f(1.f, 1.f);
 	topWall->AddComponent<RectShapeComponent>(BRICK_SPRITE_PATH, sf::Vector2f(WIN_WIDTH, 10.f));
+	topWall->AddComponent<PhysComponent>(PhysComponent::EBodyBrick, I(GameManager)->GetObjectList());
 	I(GameManager)->AddGameObject(topWall);
-
-	std::shared_ptr<GameObject> bottomWall = std::make_shared<GameObject>();
-	bottomWall->Transform->Position = sf::Vector2f(1.f, WIN_HEIGHT-10.f);
-	bottomWall->AddComponent<RectShapeComponent>(BRICK_SPRITE_PATH, sf::Vector2f(WIN_WIDTH, 10.f));
-	//I(GameManager)->AddGameObject(bottomWall);
 }

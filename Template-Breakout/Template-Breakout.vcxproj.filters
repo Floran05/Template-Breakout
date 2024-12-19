@@ -96,6 +96,9 @@
     <ClCompile Include="Services\DebugManager.cpp">
       <Filter>Fichiers sources\Services</Filter>
     </ClCompile>
+    <ClCompile Include="Components\LoseComponent.cpp">
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources.h">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="Services\DebugManager.h">
       <Filter>Fichiers d%27en-tête\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\LoseComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

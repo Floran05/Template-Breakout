@@ -28,6 +28,8 @@
 #define SPAWNER_GROW_PHASE_PERCENT_LIMIT		0.6f
 #define SPAWNER_GROW_PHASE_SPAWN_AMOUNT			2
 
+#define BALL_RADIUS								25.f
+
 #define BOUNCE_AUDIO							".\\assets\\Audio\\sfx_Ball_Bounce.wav"
 #define DESTROY_AUDIO							".\\assets\\Audio\\sfx_Brick_Destroy.wav"
 #define LOOSE_AUDIO								".\\assets\\Audio\\sfx_Loose.wav"

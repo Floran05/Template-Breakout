@@ -142,6 +142,7 @@ ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Components\BounceComponent.cpp" />
+    <ClCompile Include="Components\LoseComponent.cpp" />
     <ClCompile Include="Objects\Brick.cpp" />
     <ClCompile Include="Components\CircleShapeComponent.cpp" />
     <ClCompile Include="Components\MovementComponent.cpp" />
@@ -165,6 +166,7 @@ ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\BounceComponent.h" />
+    <ClInclude Include="Components\LoseComponent.h" />
     <ClInclude Include="Objects\Brick.h" />
     <ClInclude Include="Components\CircleShapeComponent.h" />
     <ClInclude Include="Components\Component.h" />

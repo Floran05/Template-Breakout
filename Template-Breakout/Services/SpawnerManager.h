@@ -36,6 +36,7 @@ public:
 	void Start();
 	void OnBrickDestroyed(const sf::Vector2u& gridPosition);
 
+	void ClearGrid();
 protected:
 
 	int CountEmptySlots();
