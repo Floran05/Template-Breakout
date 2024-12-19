@@ -8,7 +8,10 @@
 
 #define BALL_SPRITE_PATH						".\\assets\\benball.png"
 #define BRICK_SPRITE_PATH						".\\assets\\brick.png"
+#define BRICK2_SPRITE_PATH						".\\assets\\brick2.png"
+#define BRICK3_SPRITE_PATH						".\\assets\\brick3.png"
 #define PADDLE_SPRITE_PATH						".\\assets\\PaddleSprite.png"
+#define GAMEOVER_SPRITE_PATH					".\\assets\\GameOverPanel.png"
 
 #define DEFAULT_FONT_PATH						".\\assets\\SuperShiny.ttf"
 
