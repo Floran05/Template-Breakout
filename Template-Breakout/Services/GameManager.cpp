@@ -1,9 +1,10 @@
 ﻿#include "GameManager.h"
 
 #include "../Objects/GameObject.h"
-#include "../Services/TimeManager.h"
-#include "../Services/InputManager.h"
-#include "../Services/SpawnerManager.h"
+#include "TimeManager.h"
+#include "InputManager.h"
+#include "SpawnerManager.h"
+#include "DebugManager.h"
 
 #include "../Components/TransformComponent.h"
 
@@ -68,6 +69,7 @@ void GameManager::Draw()
 	{
 		(*it)->Draw();
 	}
+	
 	const sf::Font font(DEFAULT_FONT_PATH);
 	sf::Text text(font, std::to_string(I(TimeManager)->GetApproxFrameRate()));
 	text.setCharacterSize(30);      // Taille en pixels
@@ -75,6 +77,11 @@ void GameManager::Draw()
 	text.setStyle(sf::Text::Regular);
 	text.setPosition({ 20.f, 20.f });
 	window.draw(text);
+
+#ifdef _DEBUG
+	I(DebugManager)->Update();
+#endif // _DEBUG
+
 	window.display();
 
 	// Clear destroyed elements
