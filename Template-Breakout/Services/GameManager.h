@@ -49,6 +49,7 @@ public:
 
 	void IncreaseScore() { ++mGamePoints; }
 	void ResetScore() { mGamePoints = 0; }
+	int GetGameScore() const { return mGamePoints; }
 
 	sf::Vector2u GetWindowSize() const { return window.getSize(); }
 	sf::RenderWindow* GetWindow() { return &window; }
@@ -59,6 +60,8 @@ protected:
 	GameObjectList mGameObjects;
 
 	sf::Font mDefaultFont;
+
+	float mSpeedRatio;
 
 	GameState m_eGameState;
 	int mGamePoints;
