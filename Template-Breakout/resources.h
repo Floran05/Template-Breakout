@@ -32,8 +32,8 @@
 
 #define BALL_RADIUS								25.f
 
-#define ANGRY_LEVEL1							5
-#define ANGRY_LEVEL2							10
+#define ANGRY_LEVEL1							25
+#define ANGRY_LEVEL2							50
 
 #define BOUNCE_AUDIO							".\\assets\\Audio\\sfx_Ball_Bounce.wav"
 #define DESTROY_AUDIO							".\\assets\\Audio\\sfx_Brick_Destroy.wav"

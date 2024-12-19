@@ -49,7 +49,7 @@ std::shared_ptr<GameObject> SpawnerManager::CreateBall(const sf::Vector2f& posit
 	ball->Transform->Position = position;
 	ball->AddComponent<CircleShapeComponent>(BALL_SPRITE_PATH, radius);
 	ball->AddComponent<MovementComponent>(direction, speed);
-	ball->AddComponent<RotatingComponent>(3.f);
+	ball->AddComponent<RotatingComponent>(1.5f);
 	ball->AddComponent<BounceComponent>(direction);
 	ball->AddComponent<PhysComponent>(PhysComponent::EBodyBall, I(GameManager)->GetObjectList());
 	ball->GetComponent<PhysComponent>()->OnCollision(std::bind(&BounceComponent::HandleCollision, ball->GetComponent<BounceComponent>(), std::placeholders::_1));
