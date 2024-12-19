@@ -30,11 +30,13 @@ public:
 private:
 	sf::Vector2f m_position;
 	sf::Vector2f m_direction;
-	float m_speed;
 
 	sf::Vector2f Normalize(const sf::Vector2f& vector) const;
 
 	sf::Vector2f Reflect(const sf::Vector2f& vector, const sf::Vector2f& normal) const;
 
-	std::unique_ptr<sf::Sound> m_sound;
+	const sf::SoundBuffer buffer = sf::SoundBuffer(BOUNCE_AUDIO);
+	sf::Sound m_sound = sf::Sound(buffer);
+	
+	float m_speed;
 };

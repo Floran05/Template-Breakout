@@ -11,5 +11,9 @@ public:
 	virtual ~LoseComponent() {};
 
 	virtual void Update() override;
+
+private:
+	const sf::SoundBuffer buffer = sf::SoundBuffer(LOOSE_AUDIO);
+	sf::Sound m_GameOverSound = sf::Sound(buffer);
 };
 

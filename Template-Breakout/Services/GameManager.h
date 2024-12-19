@@ -27,7 +27,6 @@ private:
 	~GameManager();
 
 	sf::Music music = sf::Music(MUSIC_AUDIO);
-	std::unique_ptr<sf::Sound> m_GameOverSound;
 
 public:
 	void InitGame();
@@ -59,8 +58,8 @@ protected:
 	sf::RenderWindow window;
 	GameObjectList mGameObjects;
 
-	int mGamePoints;
+	sf::Font mDefaultFont;
 
 	GameState m_eGameState;
-	sf::Font mDefaultFont;
+	int mGamePoints;
 };

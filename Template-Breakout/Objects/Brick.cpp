@@ -7,16 +7,12 @@ Brick::Brick()
 	: mGridPosition({0, 0})
 	, mHealthPoints(1)
 {
-	const sf::SoundBuffer buffer = sf::SoundBuffer(DESTROY_AUDIO);
-	mSound = std::make_unique<sf::Sound>(buffer);
 }
 
 Brick::Brick(const sf::Vector2u& gridPosition, int healthPoint)
 	: mGridPosition(gridPosition)
 	, mHealthPoints(healthPoint)
 {
-	const sf::SoundBuffer buffer = sf::SoundBuffer(DESTROY_AUDIO);
-	mSound = std::make_unique<sf::Sound>(buffer);
 }
 
 Brick::~Brick()
@@ -34,10 +30,10 @@ void Brick::OnHit(const Collision& collision)
 		I(SpawnerManager)->OnBrickDestroyed(mGridPosition);
 		I(GameManager)->IncreaseScore();
 
-		if (mSound->getStatus() != sf::SoundSource::Status::Playing)
+		if (mSound.getStatus() != sf::SoundSource::Status::Playing)
 		{
-			mSound->setVolume(22);
-			mSound->play();
+			mSound.setVolume(22);
+			mSound.play();
 		}
 	}
 }

@@ -18,10 +18,11 @@ public:
 private:
 
 	sf::Vector2u mGridPosition;
+
+	const sf::SoundBuffer buffer = sf::SoundBuffer(DESTROY_AUDIO);
+	sf::Sound mSound = sf::Sound(buffer);
+
 	int mHealthPoints;
-
-	std::unique_ptr<sf::Sound> mSound;
-
 public:
 
 	sf::Vector2u GetGridPosition() const { return mGridPosition; }

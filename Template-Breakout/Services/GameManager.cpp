@@ -20,8 +20,6 @@ GameManager::GameManager()
 	window.create(sf::VideoMode(WIN_SIZE), WIN_TITLE, sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(FRAMERATE_LIMIT);
 
-	const sf::SoundBuffer buffer = sf::SoundBuffer(BOUNCE_AUDIO);
-	m_GameOverSound = std::make_unique<sf::Sound>(buffer);
 	mDefaultFont = sf::Font(DEFAULT_FONT_PATH);
 }
 
@@ -43,6 +41,7 @@ void GameManager::InitGame()
 
 	music.setLooping(true);
 	m_eGameState = EPlayingState;
+	music.setVolume(100.f);
 }
 
 bool GameManager::MainLoop()
@@ -136,8 +135,7 @@ void GameManager::ShowGameOver()
 	gameOver->Transform->Position = sf::Vector2f((WIN_WIDTH-600)/2, (WIN_HEIGHT-300)/2);
 	AddGameObject(gameOver);
 
-	if (m_GameOverSound->getStatus() != sf::SoundSource::Status::Playing)
-		m_GameOverSound->play();
+	music.setVolume(20.f);
 }
 
 void GameManager::RestartGame()
