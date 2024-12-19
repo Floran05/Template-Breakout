@@ -156,4 +156,18 @@
       <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\benball.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="assets\brick.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="assets\PaddleSprite.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\SuperShiny.ttf" />
+  </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <array>
+#include <random>
 
 #include "../Services/Singleton.h"
 #include "../resources.h"
@@ -23,6 +24,8 @@ protected:
 
 	std::array<std::array<bool, BRICK_COLUMNS_COUNT>, BRICK_ROWS_COUNT> mGrid;
 	bool mIsInGrowPhase;
+
+	std::mt19937 mRandomGenerator;
 
 public:
 

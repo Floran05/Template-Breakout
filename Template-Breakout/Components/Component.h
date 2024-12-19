@@ -12,6 +12,7 @@ public:
 	virtual ~Component();
 
 	void SetOwner(GameObject* gameObject) { m_Owner = gameObject; }
+	GameObject* GetOwner() const { return m_Owner; }
 
 	virtual void OnCreated() {};
 	virtual void Start() {};

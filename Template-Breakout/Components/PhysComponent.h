@@ -27,11 +27,13 @@ public:
 	void OnCollision(const CollisionCallback& callback);
 	void RaiseCollision(const Collision& collision);
 
+	void ResetLastCollisionTarget() { m_lastCollisionTarget = nullptr; }
+
 protected:
 	const GameObjectList& m_GameObjectList;
 	CollisionCallback m_collisionCallback;
 	ShapeComponent* m_pShapeComponent;
-	Collision* m_lastCollision;
+	GameObject* m_lastCollisionTarget;
 	EBodyType m_eBodyType;
 };
 
