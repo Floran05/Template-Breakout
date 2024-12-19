@@ -30,6 +30,10 @@ public:
 	void ExitGame();
 
 	void AddGameObject(std::shared_ptr<GameObject> object);
+	void DrawText(const sf::String& text, const sf::Vector2f& position, const sf::Color& color, bool horizontalCenter = false, const unsigned int fontSize = 30);
+
+	void IncreaseScore() { ++mGamePoints; }
+	void ResetScore() { mGamePoints = 0; }
 
 	sf::Vector2u GetWindowSize() const { return window.getSize(); }
 	sf::RenderWindow* GetWindow() { return &window; }
@@ -37,6 +41,9 @@ public:
 	const GameObjectList& GetObjectList() const { return mGameObjects; }
 protected:
 	sf::RenderWindow window;
-
 	GameObjectList mGameObjects;
+
+	int mGamePoints;
+
+	sf::Font mDefaultFont;
 };

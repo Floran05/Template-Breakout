@@ -35,7 +35,7 @@ std::shared_ptr<GameObject> SpawnerManager::CreateBrick(const sf::Vector2f& posi
 {
 	std::shared_ptr<Brick> brick = std::make_shared<Brick>(gridPosition, healthPoints);
 	brick->Transform->Position = position;
-	brick->AddComponent<RectShapeComponent>(BRICK_SPRITE_PATH, mBrickSize);
+	brick->AddComponent<RectShapeComponent>(Brick::GetTexturePathByHealthPoints(healthPoints), mBrickSize);
 	brick->AddComponent<PhysComponent>(PhysComponent::EBodyBrick, I(GameManager)->GetObjectList());
 	brick->GetComponent<PhysComponent>()->OnCollision(std::bind(&Brick::OnHit, brick, std::placeholders::_1));
 	return brick;

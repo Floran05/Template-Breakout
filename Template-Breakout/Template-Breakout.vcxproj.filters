@@ -176,4 +176,21 @@
   <ItemGroup>
     <Font Include="assets\SuperShiny.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\Audio\music_Arcade.wav">
+      <Filter>Fichiers de ressources</Filter>
+    </Media>
+    <Media Include="assets\Audio\music_Arcade_Loop.wav">
+      <Filter>Fichiers de ressources</Filter>
+    </Media>
+    <Media Include="assets\Audio\sfx_Ball_Bounce.wav">
+      <Filter>Fichiers de ressources</Filter>
+    </Media>
+    <Media Include="assets\Audio\sfx_Brick_Destroy.wav">
+      <Filter>Fichiers de ressources</Filter>
+    </Media>
+    <Media Include="assets\Audio\sfx_Loose.wav">
+      <Filter>Fichiers de ressources</Filter>
+    </Media>
+  </ItemGroup>
 </Project>
