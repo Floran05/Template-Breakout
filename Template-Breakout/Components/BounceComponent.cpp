@@ -36,11 +36,6 @@ void BounceComponent::Update()
 	if (!m_Owner) 
 		return;
 
-	//float deltaTime = I(TimeManager)->GetDeltaTime();
-	//m_position += m_direction * m_speed * deltaTime;
-
-	//m_Owner->Transform->Position = m_position;
-
 	m_Owner->GetComponent<MovementComponent>()->SetDirection(m_direction);
 }
 

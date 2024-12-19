@@ -10,6 +10,7 @@
 #include "../Components/PhysComponent.h"
 #include "../Components/LoseComponent.h"
 #include "../Services/GameManager.h"
+#include "../Components/BallBehaviourComponent.h"
 
 #include <functional>
 
@@ -53,6 +54,7 @@ std::shared_ptr<GameObject> SpawnerManager::CreateBall(const sf::Vector2f& posit
 	ball->AddComponent<PhysComponent>(PhysComponent::EBodyBall, I(GameManager)->GetObjectList());
 	ball->GetComponent<PhysComponent>()->OnCollision(std::bind(&BounceComponent::HandleCollision, ball->GetComponent<BounceComponent>(), std::placeholders::_1));
 	ball->AddComponent<LoseComponent>();
+	ball->AddComponent<BallBehaviourComponent>();
 	return ball;
 }
 

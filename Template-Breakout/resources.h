@@ -7,8 +7,8 @@
 #define FRAMERATE_LIMIT							60
 
 #define BALL_SPRITE_PATH						".\\assets\\benball.png"
-#define BALL2_SPRITE_PATH						".\\assets\\brick.png"
-#define BALL3_SPRITE_PATH						".\\assets\\brick2.png"
+#define BALL2_SPRITE_PATH						".\\assets\\benball1.png"
+#define BALL3_SPRITE_PATH						".\\assets\\benball2.png"
 #define BRICK_SPRITE_PATH						".\\assets\\brick.png"
 #define BRICK2_SPRITE_PATH						".\\assets\\brick2.png"
 #define BRICK3_SPRITE_PATH						".\\assets\\brick3.png"
@@ -31,6 +31,9 @@
 #define SPAWNER_GROW_PHASE_SPAWN_AMOUNT			2
 
 #define BALL_RADIUS								25.f
+
+#define ANGRY_LEVEL1							5
+#define ANGRY_LEVEL2							10
 
 #define BOUNCE_AUDIO							".\\assets\\Audio\\sfx_Ball_Bounce.wav"
 #define DESTROY_AUDIO							".\\assets\\Audio\\sfx_Brick_Destroy.wav"

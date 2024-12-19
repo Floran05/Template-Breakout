@@ -99,6 +99,9 @@
     <ClCompile Include="Components\LoseComponent.cpp">
       <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Components\BallBehaviourComponent.cpp">
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources.h">
@@ -165,6 +168,9 @@
       <Filter>Fichiers d%27en-tête\Services</Filter>
     </ClInclude>
     <ClInclude Include="Components\LoseComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\BallBehaviourComponent.h">
       <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
   </ItemGroup>
