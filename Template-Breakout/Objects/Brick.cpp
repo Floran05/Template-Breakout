@@ -1,5 +1,6 @@
 #include "Brick.h"
 #include "../Services/SpawnerManager.h"
+#include "../Components/PhysComponent.h"
 
 Brick::Brick()
 	: mGridPosition({0, 0})
@@ -20,6 +21,7 @@ Brick::~Brick()
 void Brick::OnHit(const Collision& collision)
 {
 	--mHealthPoints;
+	GetComponent<PhysComponent>()->ResetLastCollisionTarget();
 	if (GetHealthPoints() < 1)
 	{
 		SetIsPendingKill(true);

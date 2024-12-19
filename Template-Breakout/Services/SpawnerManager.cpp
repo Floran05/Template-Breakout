@@ -10,7 +10,6 @@
 #include "../Components/PhysComponent.h"
 #include "../Services/GameManager.h"
 
-#include <random>
 #include <functional>
 
 SpawnerManager::SpawnerManager()
@@ -24,6 +23,8 @@ SpawnerManager::SpawnerManager()
 	{
 		row.fill(false);
 	}
+	std::random_device device;
+	mRandomGenerator = std::mt19937(device());
 }
 
 SpawnerManager::~SpawnerManager()
@@ -103,12 +104,10 @@ void SpawnerManager::AddBrickAtRandomLocation()
 {
 	int emptySlots = CountEmptySlots();
 	if (emptySlots < 1) return;
-
-	std::random_device dev;
-	std::mt19937 gen(dev());
 	std::uniform_int_distribution<std::mt19937::result_type> dist(1, emptySlots);
+	std::uniform_int_distribution<std::mt19937::result_type> healthDist(1, 3);
 
-	const int randomTargetPosition = dist(gen);
+	const int randomTargetPosition = dist(mRandomGenerator);
 	int countEmptySlots = 0;
 	for (int r = 0, rm = mGrid.size(); r < rm; ++r)
 	{
@@ -120,9 +119,9 @@ void SpawnerManager::AddBrickAtRandomLocation()
 				if (countEmptySlots == randomTargetPosition)
 				{
 					std::shared_ptr<GameObject> brick = CreateBrick(
-						{ c * (mBrickSize.x + BRICK_MARGIN) + BRICK_MARGIN, r * (mBrickSize.y + BRICK_MARGIN) + BRICK_MARGIN },
+						{ c * (mBrickSize.x + BRICK_MARGIN) + BRICK_MARGIN, r * (mBrickSize.y + BRICK_MARGIN) + BRICK_MARGIN + SPAWNER_Y_SHIFT },
 						sf::Vector2u(r, c),
-						1
+						healthDist(mRandomGenerator)
 					);
 					mGrid[r][c] = true;
 					I(GameManager)->AddGameObject(brick);

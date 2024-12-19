@@ -5,7 +5,7 @@
 PhysComponent::PhysComponent(EBodyType bodyType, const GameObjectList& gameObjectList)
 	: m_GameObjectList(gameObjectList)
     , m_pShapeComponent(nullptr)
-    , m_lastCollision(nullptr)
+    , m_lastCollisionTarget(nullptr)
 	, m_eBodyType(bodyType)
 {
 }
@@ -40,15 +40,13 @@ void PhysComponent::Update()
         if (!otherShapeComponent)
             continue;
 
-        if (m_lastCollision && m_lastCollision->Target == otherShapeComponent)
-        {
-            m_lastCollision = nullptr;
-            continue;
-        }
-
         if (auto collision = m_pShapeComponent->CheckCollision(*otherShapeComponent))
         {
-            m_lastCollision = &collision.value();
+            if (m_lastCollisionTarget && m_lastCollisionTarget == collision->Target->GetOwner())
+            {
+                continue;
+            }
+            m_lastCollisionTarget = collision->Target->GetOwner();
             RaiseCollision(*collision);
 
             I(DebugManager)->AddDebugCollision(*collision, std::chrono::milliseconds(1000));
