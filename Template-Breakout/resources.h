@@ -3,7 +3,7 @@
 #define WIN_HEIGHT								720
 #define WIN_WIDTH								1280
 #define WIN_SIZE								{WIN_WIDTH, WIN_HEIGHT}
-#define WIN_TITLE								"SFML"
+#define WIN_TITLE								"Goofy Breakout"
 #define FRAMERATE_LIMIT							60
 
 #define BALL_SPRITE_PATH						".\\assets\\benball.png"
