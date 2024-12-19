@@ -25,6 +25,7 @@ public:
     void Update() override;
     void Draw() override;
 
+    virtual void SetTexture(const std::filesystem::path& filepath);
     virtual std::optional<Collision> CheckCollision(ShapeComponent& other) = 0;
 
     const std::shared_ptr<sf::Shape> GetShape() const { return m_Shape; }

@@ -11,9 +11,11 @@
 #include "../resources.h"
 
 GameManager::GameManager()
+	: mGamePoints(0)
 {
 	window.create(sf::VideoMode(WIN_SIZE), WIN_TITLE, sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(FRAMERATE_LIMIT);
+	mDefaultFont = sf::Font(DEFAULT_FONT_PATH);
 }
 
 bool GameManager::Run()
@@ -73,14 +75,9 @@ void GameManager::Draw()
 	{
 		(*it)->Draw();
 	}
-	
-	const sf::Font font(DEFAULT_FONT_PATH);
-	sf::Text text(font, std::to_string(I(TimeManager)->GetApproxFrameRate()));
-	text.setCharacterSize(30);      // Taille en pixels
-	text.setFillColor(sf::Color::Green); // Couleur du texte
-	text.setStyle(sf::Text::Regular);
-	text.setPosition({ 20.f, 20.f });
-	window.draw(text);
+
+	DrawText(std::to_string(I(TimeManager)->GetApproxFrameRate()), { 20.f, 20.f }, sf::Color::Green);
+	DrawText(std::to_string(mGamePoints), { WIN_WIDTH * 0.5f, 20.f }, sf::Color::Red, true, 50);
 
 #ifdef _DEBUG
 	I(DebugManager)->Update();
@@ -115,6 +112,23 @@ void GameManager::AddGameObject(std::shared_ptr<GameObject> object)
 	mGameObjects.emplace_back(object);
 }
 
+void GameManager::DrawText(const sf::String& text, const sf::Vector2f& position, const sf::Color& color, bool horizontalCenter, const unsigned int fontSize)
+{
+	sf::Text textObject(mDefaultFont, text);
+	textObject.setCharacterSize(fontSize); // Taille en pixels
+	textObject.setFillColor(color); // Couleur du texte
+	textObject.setStyle(sf::Text::Regular);
+	if (horizontalCenter)
+	{
+		const sf::FloatRect bounds = textObject.getLocalBounds();
+		textObject.setPosition({ position.x - bounds.size.x * 0.5f, position.y });
+	}
+	else
+	{
+		textObject.setPosition(position);
+	}
+	window.draw(textObject);
+}
 
 GameManager::~GameManager()
 {

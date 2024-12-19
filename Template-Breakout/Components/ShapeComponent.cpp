@@ -13,9 +13,7 @@ ShapeComponent::ShapeComponent()
 
 void ShapeComponent::OnCreated()
 {	
-	m_Texture = I(ResourceManager)->GetTexture(m_filePath);
-	if (m_Shape)
-		m_Shape->setTexture(m_Texture.get());
+	SetTexture(m_filePath);
 }
 
 void ShapeComponent::Update()
@@ -29,4 +27,11 @@ void ShapeComponent::Draw()
 	m_Shape->setRotation(m_Owner->Transform->Rotation);
 	m_Shape->setScale(m_Owner->Transform->Scale);
 	I(GameManager)->GetWindow()->draw(*m_Shape);
+}
+
+void ShapeComponent::SetTexture(const std::filesystem::path& filepath)
+{
+	m_Texture = I(ResourceManager)->GetTexture(filepath);
+	if (m_Shape && m_Texture)
+		m_Shape->setTexture(m_Texture.get());
 }

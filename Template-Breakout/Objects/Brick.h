@@ -29,6 +29,7 @@ public:
 	int GetHealthPoints() const { return mHealthPoints; }
 
 	void OnHit(const Collision& collision);
+	static const char* GetTexturePathByHealthPoints(int healthPoints);
 
 };
 
