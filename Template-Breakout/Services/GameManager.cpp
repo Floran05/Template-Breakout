@@ -69,10 +69,10 @@ void GameManager::Draw()
 		(*it)->Draw();
 	}
 	const sf::Font font(DEFAULT_FONT_PATH);
-	sf::Text text(font, std::to_string(I(TimeManager)->GetFrameRate()));
+	sf::Text text(font, std::to_string(I(TimeManager)->GetApproxFrameRate()));
 	text.setCharacterSize(30);      // Taille en pixels
 	text.setFillColor(sf::Color::Green); // Couleur du texte
-	text.setStyle(sf::Text::Bold);
+	text.setStyle(sf::Text::Regular);
 	text.setPosition({ 20.f, 20.f });
 	window.draw(text);
 	window.display();

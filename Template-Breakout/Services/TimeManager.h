@@ -16,6 +16,7 @@ public:
 
 	double GetDeltaTime() const { return deltaTime; }
 	double GetFrameRate() const;
+	int GetApproxFrameRate() const;
 	double GetTotalTime() const;
 
 
