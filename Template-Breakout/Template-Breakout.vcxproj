@@ -116,6 +116,9 @@ vorbisfiled.lib
 ;vorbisd.lib;
 oggd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /F /E "$(ProjectDir)assets\*" "$(OutDir)assets\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -139,6 +142,9 @@ vorbisfile.lib
 ;vorbis.lib;
 ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /F /E "$(ProjectDir)assets\*" "$(OutDir)assets\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Components\BallBehaviourComponent.cpp" />
